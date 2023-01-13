@@ -87,23 +87,19 @@ class MachineCapacity(models.Model):
             for childCap in childCaps:
                 if childCap.aa_remain_capacity == 0.0:
                     calRecRemCap = childCap.aa_capacity - childCap.aa_prod_time_total_est
-                print("childCap>>>>>>>>>>>>>",childCap.aa_name,childCap.aa_remain_capacity,calRecRemCap)
                 totalRemCapacity += childCap.aa_remain_capacity
             record.aa_remain_capacity = (totalRemCapacity + calRecRemCap) - record.aa_prod_time_total_est
-            print("yyyy>>>>>>>>>>>",record.aa_name,record.aa_remain_capacity)
         else:
             record.aa_remain_capacity = record.aa_capacity - record.aa_prod_time_total_est
 
     # Need to check
     @api.depends('aa_parent_capacity', 'aa_prod_time_total_est', 'aa_capacity')
     def aa_compute_remain_capacity(self):
-        print("method calling>>>>>>>>>>>>>>>>>>")
         for record in self:
             if record.aa_parent_capacity:
                 record.aa_remain_capacity = record.aa_capacity - record.aa_prod_time_total_est
             else:
                 self.update_remain_parent_capacities(record)
-            print("record.aa_remain_capacity>>>>>>>>>>>>>>>>>>>>>>>>",record.aa_remain_capacity,record.aa_name)
 
     # Done
     @api.depends('aa_date')
@@ -186,7 +182,7 @@ class MachineCapacity(models.Model):
                 'aa_resource_id': res.aa_resource_id.id,
                 'aa_capacity_machine_id': res.id,
                 'project_id': self.env.ref('machine_management.production_project').id,
-                # 'aa_freeze': True,
+                'aa_freeze': True,
                 'aa_startup':True})
         return res
 

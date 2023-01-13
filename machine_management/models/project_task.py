@@ -7,6 +7,7 @@
 ##############################################################################
 
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class MachineProjectTask(models.Model):
@@ -27,6 +28,7 @@ class MachineProjectTask(models.Model):
     aa_html = fields.Html()
     # aa_kanban_line = fields.Html(compute='_get_sale_order_lines')
     aa_startup = fields.Boolean(string='aa_startup', readonly=True)
+    aa_freeze = fields.Boolean(string='aa_freeze')
     aa_progress_bar = fields.Float(related='aa_capacity_machine_id.aa_progress',
         string=' ', store=True)
     aa_capacity_date = fields.Date(related='aa_capacity_machine_id.aa_date', store=True)
@@ -58,6 +60,9 @@ class MachineProjectTask(models.Model):
     def write(self, vals):
         res = super(MachineProjectTask, self).write(vals)
         if vals.get('aa_capacity_machine_id'):
+            if self.aa_freeze == True:
+                raise ValidationError('\
+                    Unable to move.')
             capacity = self.env['aa.capacity.machine'].browse(
                 vals.get('aa_capacity_machine_id'))
             orderLine = (self.env['sale.order.line'].browse(
