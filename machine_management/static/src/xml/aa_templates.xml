@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <templates id="template" xml:space="preserve">
+    <t t-inherit="web.KanbanView.ColumnProgressBar" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_kanban_counter_side')]" position="after">
+            <b class="ml-2"><t t-esc="'('+widget.columnState.count+')'"/></b>
+        </xpath>
+    </t>
+</templates> -->
+<template id="template" xml:space="preserve">
+
+    <t t-inherit="web.KanbanRenderer" t-inherit-mode="extension" owl="1">
+        <xpath expr="//span[hasclass('o_column_title')]" position="replace">
+            <span class="o_column_title flex-grow-1 d-inline-block mw-100 text-truncate fs-4 fw-bold align-top o_column_go_normal" t-att-class="{ 'overflow-visible': !env.isSmall and group.isFolded }" t-esc="getGroupName(group)+'('+group.count+')'"/>
+        </xpath>
+        <xpath expr="//button[hasclass('o_kanban_quick_add')]" position="after">
+            <a style="margin-left:20px;" class="o_column_go_zero" t-on-click="() => this.o_column_go_zero(group)"><i class="fa fa-arrow-left" role="img" aria-label="normal_machine" title="Go to Zero Machine"/></a>
+        </xpath>
+    </t>
+
+    <!-- 
+    <t name="Kanban column Progress" t-extend="KanbanView.ColumnProgressBar">
+        <t t-jquery="div.o_kanban_counter_progress" t-operation="before">
+            <t t-if="widget.columnState.model === 'project.task' and widget.columnState.progressBarValues.sum_field === 'aa_production_time_count'">
+                <div style="margin-right: 5px;"><b><t t-esc="widget.progessBarPercentage || 0"/>%</b></div>
+            </t>
+        </t>
+    </t>
+     -->
+
+    <!-- <div t-extend="FieldBinaryFileUploader.files">
+        <t t-jquery="a[class*='oe_delete']" t-operation="replace">
+            <t t-if="!widget.attrs.context">
+                <a href="#" class="fa fa-times float-right oe_delete" title="Delete this file" aria-label="Delete this file" t-att-data-id="file.data.id"/>
+            </t>
+            <t t-if="widget.attrs.context and widget.attrs.context.includes('image_sale_line')">
+                <a href="#" class="fa fa-times oe_delete" title="Delete this file" aria-label="Delete this file" t-att-data-id="file.data.id"/>
+            </t>
+        </t>
+    </div> -->
+
+</template>

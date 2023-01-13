@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="aa_task_advance_order_line_inherit_id" model="ir.ui.view">
+            <field name="name">aa_task_advance_order_line_inherit_id</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/field/tree/field[@name='product_uom']"
+                       position="after">
+                    <field name="product_type" invisible="1"/>
+                    <field name="aa_resource_id"
+                           domain="[('resource_type','=','material'),('aa_zero', '=', True)]"
+                           attrs="{'readonly': ['|', ('product_type', '=', 'product'),
+                            ('state', '=', 'sale')]}"
+                           options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
+                    <field name="aa_capacity_machine_id"
+                           domain="[('aa_resource_id', '=', aa_resource_id),
+                           ('aa_date', '>=', datetime.date.today().strftime('%Y-%m-%d')),
+                           ('aa_locked', '=', False)]"
+                           attrs="{'readonly': ['|', ('aa_resource_id', '=', False),
+                           ('state', '=', 'sale')]}"
+                           options="{'no_create':True,'no_open': True,}"/>
+                    <field name="aa_prod_time_total_norm" widget="float_time"/>
+                    <field name="aa_prod_time_total_est" widget="float_time"
+                           attrs="{'readonly': [('state', '=', 'sale')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

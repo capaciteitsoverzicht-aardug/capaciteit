@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="aa_resource_inherit_id" model="ir.ui.view">
+            <field name="name">resource.resource.form</field>
+            <field name="model">resource.resource</field>
+            <field name="inherit_id" ref="resource.resource_resource_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group" position="after">
+                    <notebook>
+                        <page name="aa_setup" string="Setup">
+                            <group>
+                                <group>
+                                    <field name="aa_code" required="1"/>
+                                    <field name="aa_prod_time_norm"/>
+                                    <field name="aa_machine_group_id"
+                                           options="{'no_create': True,
+                                           'no_create_edit':True}"/>
+                                    <field name="aa_zero"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+                <field name="resource_type" position="after">
+                    <field name="aa_parent_resource" domain="[('resource_type', '=', 'material'), ('aa_zero', '=', True)]" options="{'no_create': True, 'no_create_edit':True}" attrs="{'invisible': [('aa_zero', '=', True)]}"/>
+                </field>
+            </field>
+        </record>
+
+         <record id="aa_resource_resource_tree_inherit_id" model="ir.ui.view">
+            <field name="name">resource.resource.tree</field>
+            <field name="model">resource.resource</field>
+            <field name="inherit_id" ref="resource.resource_resource_tree"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="before">
+                    <field name="aa_machine_group_id"/>
+                    <field name="aa_code"/>
+                    <field name="aa_prod_time_norm"/>
+                </field>
+            </field>
+        </record>
+
+         <record id="action_aa_machine_resource" model="ir.actions.act_window">
+            <field name="name">Resource</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">resource.resource</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Resource"
+                  id="aa_menu_machine_resource"
+                  parent="project.menu_project_config"
+                  action="action_aa_machine_resource"
+                  sequence="12"/>
+
+    </data>
+</odoo>

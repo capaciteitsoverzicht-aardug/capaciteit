@@ -1,0 +1,145 @@
+.black_color_btn{
+    color: #000000;
+    background-color: transparent;
+}
+.aa_green_color{
+    color: green;
+    background-color: transparent;
+}
+.red_color_btn{
+    color: red;
+    background-color: transparent;
+}
+.aa_task_kanaban_header {
+    color: white;
+    display: flex;
+    background-color: #875a7b;
+    padding: 4px
+}
+.aa_customerName {
+    border-radius: 4px;
+    /*color:#F24B0F;*/
+    padding: 4px; 
+}
+.oe_kanban_card {
+    padding-top: 0;
+}
+.oe_fold_column {
+    overflow: hidden;
+    height: 120px;
+}
+.o_column_go_normal i{
+    color: black;
+    background-color: transparent;
+    margin-right:10px;
+}
+.o_column_go_zero i{
+    color: black;
+    background-color: transparent;
+    margin-right:10px;
+}
+.oe_kanban_card .oe_kanban_color_gray{
+    background-color : #95A5A6 !important; color: white;
+}
+.oe_kanban_card .oe_kanban_aa_plan_only_color{
+    background-color : #7c7bad !important; color: white;
+}
+
+.o_kanban_counter {
+    > .o_kanban_counter_progress {
+        width: 100%;
+    }
+}
+
+/*.o_kanban_renderer.o_renderer.o_kanban_grouped.o_kanban_small_column.kanban_large_width{
+    width: 350px !important;
+}
+.o_kanban_group.o_group_draggable.bg-100{
+    width: 350px !important;
+    
+}*/
+.o_kanban_renderer.o_kanban_grouped.o_kanban_small_column{
+    --KanbanGroup-width: 350px !important;
+}
+
+.o_kanban_view.o_kanban_grouped.o_kanban_small_column.kanban_large_width .o_kanban_group:not(.o_column_folded) {
+    --KanbanGroup-width: 350px !important;
+    width: 350px !important;
+}
+
+.o_kanban_group.o_column_folded {
+    width: 195px !important;
+}
+
+/*.o_kanban_view.kanban_progress_html {
+    &.o_kanban_view .o_kanban_group {
+    padding: 0 !important;
+    }
+    &.o_kanban_view.o_kanban_grouped{
+        background-color: #fff;
+    }
+    &.o_kanban_view.o_kanban_grouped div:nth-child(even){
+        background-color: content-box;
+    }
+}*/
+
+.table_header {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #eef0f2;
+}
+.table_header_date {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #eef0f2;
+}
+.table_header_date:hover{
+    background-color: darkgray;
+    color:white;
+    cursor:pointer;  /* you may delete this if you want */
+}
+.resource_occupied {
+    background-color: #f77c5d !important;
+    cursor:pointer;
+}
+.resource_hollyday {
+    background-color: blue !important;
+    cursor:pointer;
+}
+.resource_free {
+    background-color: #30b273 !important;
+    cursor:pointer;
+}
+.resource_leave {
+    background-color: #f4ac2e !important;
+    cursor:pointer;
+}
+.resource_conflict {
+    background-color: #f4ac2e !important;
+    cursor:pointer;
+    background-image: '/resource_management/static/src/img/conflict.png';
+}
+.fht-table{
+    width: -webkit-fill-available !important;
+}
+.search-data {
+    width: 80px;
+    position: absolute;
+    top: 22px;
+    /*right: 90px;*/
+}
+.margin {
+    margin: 0 2px 0 2px;
+}
+
+.aa_zero_machine_card_color {
+    background-color: #95A5A6 !important;
+}
+
+.aa_other_machine_card_color {
+    background-color: #ffffff !important;
+}
+
+div[role='tooltip']{
+    max-width: 400px !important;
+}

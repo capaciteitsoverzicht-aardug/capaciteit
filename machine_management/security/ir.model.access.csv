@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_aa_machine_group,aa.machine.group,model_aa_machine_group,base.group_user,1,1,1,1
+access_aa_capacity_machine,aa.capacity.machine,model_aa_capacity_machine,base.group_user,1,1,1,1
+machine_management.access_aa_procedure,access_aa_procedure,machine_management.model_aa_procedure,base.group_user,1,1,1,1

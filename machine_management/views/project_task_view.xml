@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_task_form2_inh" model="ir.ui.view">
+            <field name="name">project.task.inh</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[@name='extra_info']"
+                       position="after">
+                    <page name="aa_other" string="Other">
+                        <group>
+                            <group>
+                                <field name="aa_production_time_count"
+                                       widget="float_time" readonly="1"/>
+                                <field name="aa_resource_id"/>
+                                <field name="aa_capacity_machine_id"
+                                       readonly="1"
+                                       domain="[('aa_resource_id', '=', aa_resource_id)]"/>
+                            </group>
+                            <group>
+                                <field name="aa_quantity"/>
+                                <field name="aa_production_state"/>
+                                <field name="aa_capacity_machine_id_old"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_task_dashboard_kanban" model="ir.ui.view">
+            <field name="name">task.dashboard.kanban</field>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_small_column o_kanban_project_tasks kanban_large_width" on_create="quick_create" quick_create_view="project.quick_create_task_form" examples="project">
+                    <field name="color"/>
+                    <field name="priority"/>
+                    <field name="stage_id" options='{"group_by_tooltip": {"description": "Stage Description", "legend_priority": "Use of stars"}}'/>
+                    <field name="id"/>
+                    <field name="sequence"/>
+                    <field name="date_deadline"/>
+                    <field name="message_needaction_counter"/>
+                    <field name="displayed_image_id"/>
+                    <field name="active"/>
+                    <field name="legend_blocked"/>
+                    <field name="legend_normal"/>
+                    <field name="legend_done"/>
+                    <field name="activity_ids"/>
+                    <field name="activity_state"/>
+                    <field name="rating_last_value"/>
+                    <field name="rating_ids"/>
+                    <field name="aa_production_start_time"/>
+                    <field name="aa_production_end_time"/>
+                    <field name="aa_production_time_count"/>
+                    <field name="aa_capacity_machine_id"/>
+                    <field name="sale_order_id"/>
+                    <field name="aa_progress_bar"/>
+                    <field name="aa_startup"/>
+                    <!-- <field name="aa_order_line_ids"/> -->
+                    <!-- <field name="aa_kanban_line"/> -->
+                    <!-- <field name="aa_bug"/> -->
+                    <!-- <field name="aa_lock"/> -->
+                    <field name="aa_capacity_date"/>
+                    <!-- <field name="is_production_done"/> -->
+                    <field name="aa_kanban_color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_dblclick #{record.aa_kanban_color.value}">
+                                <div class="oe_fold_column oe_kanban_content" t-att-data-id="record.id.value" style="opacity:1; background:white;">
+                                    <t t-if="record.aa_startup.raw_value">
+                                        <input type="hidden" class="o_column_go_normal" t-att-value='record.aa_capacity_date.value' name='record_date'/>
+                                        <field name="aa_progress_bar" widget="progressbar" style="width:100% !important"/><br/>
+                                        <b>Remain Capacity : <field name="aa_related_remain_capacity" widget="float_time"/></b>
+                                    </t>
+                                    <t t-else="">
+                                        <div class="aa_task_kanaban_header" style="width: 298px; height:26px; ">
+                                            <div>
+                                                <span class="find_same_so pull-left" style="width: 225px; padding: 0; overflow: hidden; position:relative; text-overflow: ellipsis; white-space: nowrap">
+                                                    ORDER <field name="sale_order_id"/>: <!-- [<field name="aa_default_code"/>] -->
+                                                </span>
+                                                <span style="margin-right:5px;">
+                                                    (<field name="aa_production_time_count" widget="float_time"/>)
+                                                </span>
+                                            </div>
+                                            <div class="fa fa-scissors fa-lg pull-right" style="margin-left:auto;"></div>
+                                        </div>
+                                        <div class="o_dropdown_kanban dropdown" groups="base.group_user">
+                                            <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                                <span class="fa fa-ellipsis-v"/>
+                                            </a>
+                                            <div class="dropdown-menu" role="menu">
+                                                <a t-if="widget.editable" role="menuitem" type="set_cover" class="dropdown-item">Set Cover Image</a>
+                                                <a name="%(portal.portal_share_action)d" role="menuitem" type="action" class="dropdown-item">Share</a>
+                                                <a t-if="widget.editable" role="menuitem" type="edit" class="dropdown-item">Edit Task</a>
+                                                <a t-if="widget.deletable" role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                                <div role="separator" class="dropdown-divider"></div>
+                                                <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                            </div>
+                                        </div>
+                                        <div style="text-align: center;">
+                                            <li class="fa fa-lock fa-lg margin" style="color:gray;"></li>
+                                            <li class="fa fa-bug fa-lg margin" style="color:red;"></li>
+                                            <!-- <span style="margin-right:-23px;"><field name="aa_lock" widget="lock_status"/></span> -->
+                                            <!-- <span style="margin-right:-12px;"></span> -->
+                                            <!-- <field name="aa_bug" widget="bug_status"/> -->
+                                            <!-- <li class="fa fa-cart-plus fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li> -->
+                                            <!-- <li class="fa fa-upload fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li>
+                                            <li class="fa fa-picture-o fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li>
+                                            <li class="fa fa-pencil-square fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li> -->
+                                            <!-- <li class="fa fa-bug fa-lg margin" style="color:#b5383a;"></li> -->
+                                            <!-- <li class="fa fa-download fa-lg margin" style="color:#00a09d;"></li> -->
+                                           <!--  <li class="fa fa-level-up fa-lg margin" style="color:gray;"
+                                            t-att-data-id="record.id.value"></li>
+                                            <li class="fa fa-truck fa-lg margin" style="color:gray;"
+                                            t-att-data-id="record.id.value"></li> -->
+                                            <!-- <span style="margin-left:-10px;"><field name="is_production_done" widget="production_status"/></span> -->
+                                        </div>
+                                        <table border="0px solid black" 
+                                               cellpadding="2" 
+                                               style="margin-top: 4px">
+                                            <tbody>
+                                                <div class="row" style="margin-top:10px; color:white; margin-left:10px;">
+                                                    <div class="column" style="margin-left:22px;height: 20px;width: 50px; background-color:#2C8397; color: white; text-align: center; border-radius: 4px; font-size: 14px;">
+                                                        <field name="aa_quantity"/>
+                                                    </div>
+                                                    <div class="column" style="margin-left:22px;height: 20px;width: 185px; background-color:#2C8397; color: white; text-align: center; border-radius: 4px; font-size: 14px;">
+                                                        <field name="partner_id"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-top:10px; margin-left:10px; text-align:center;">
+                                                    <div class="datum" t-att-data-id="record.id.value"
+                                                    style="color: darkorange;margin-left:15px;">
+                                                        <b><field name="date_deadline"/></b>
+                                                    </div>
+                                                    <!-- <div class="column" style="background-color:black; color:white; font-weight:bold; margin-left:25px; width:50px;border-radius: 4px;">
+                                                        <b><field name="aa_group_count"/></b>
+                                                    </div> -->
+                                                    <!-- <div class="column" style="background-color:black; color:white; font-weight:bold; margin-left:15px;  width:50px;border-radius: 4px;">
+                                                        <b><field name="aa_order_line_count"/></b>
+                                                    </div> -->
+                                                </div>
+                                            </tbody>
+                                        </table>
+                                        <div style="height: 20px;"></div>
+                                        <div>
+                                            <!-- <b><field name="aa_kanban_line" widget="html"/></b> -->
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="aa_view_task_dashboard_search" model="ir.ui.view">
+            <field name="name">project.task.search.kanaban</field>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+               <search string="Tasks">
+                    <field name="name" string="Tasks"/>
+                    <field name="tag_ids"/>
+                    <field name="partner_id"/>
+                    <field name="project_id"/>
+                    <field name="stage_id"/>
+                    <filter string="Production" name="production"
+                        domain="[('project_id.aa_project_type', '=', 'production')]"/>
+                    <separator/>
+                    <filter string="aa_printer_today" name="aa_replan_today"
+                        domain="[('aa_capacity_machine_id.aa_date', 'like', datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                    <filter string="aa_printer_week" name="aa_replan_week"
+                        domain="[('aa_capacity_machine_id.aa_date', '&gt;=', datetime.date.today().strftime('%Y-%m-%d')),
+                        ('aa_capacity_machine_id.aa_date', '&lt;=', (datetime.date.today() + (datetime.timedelta(days=6))).strftime('%Y-%m-%d'))]"/>
+                    <filter string="0 Machine" name="aa_0_machine"
+                       domain="[('aa_capacity_machine_id.aa_resource_id.aa_zero', '=', 'True')]"/>
+                    <filter string="aa_normal_machine" name="aa_normal_machine"
+                        domain="['|',('aa_capacity_machine_id.aa_resource_id.aa_zero', '=', 'True'),('aa_capacity_machine_id.aa_resource_id.aa_zero', '!=', 'True')]"/>
+                    <separator/>
+                    <filter string="Today" name="aa_production_today"
+                        domain="[('aa_capacity_machine_id.aa_date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('aa_capacity_machine_id.aa_date', '&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+                    <filter string="Yesterday" name="aa_yesterday_production"
+                        domain="[('aa_capacity_machine_id.aa_date','&gt;=', ((context_today()-datetime.timedelta(days=1)).strftime('%Y-%m-%d 00:00:00'))), ('aa_capacity_machine_id.aa_date','&lt;=', ((context_today()-datetime.timedelta(days=1)).strftime('%Y-%m-%d 23:23:59')))]"/>
+                    <filter string="Tomorrow" name="aa_tomorrow_production"
+                        domain="[('aa_capacity_machine_id.aa_date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d 00:00:00 '))), ('aa_capacity_machine_id.aa_date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d 23:23:59')))]"/>
+                    <filter string="This week" name="aa_this_week_production"
+                        domain="[('aa_capacity_machine_id.aa_date', '&gt;=', ((context_today()+relativedelta(weeks=-1,days=1, weekday=0)).strftime('%Y-%m-%d'))),('aa_capacity_machine_id.aa_date', '&lt;=', ((context_today()+relativedelta(weeks=0,weekday=6)).strftime('%Y-%m-%d')))]"/>
+                    <filter string="Last week" name="aa_last_week_production"
+                        domain="[('aa_capacity_machine_id.aa_date', '&gt;=', ((context_today()+relativedelta(weeks=-2,days=1, weekday=0)).strftime('%Y-%m-%d'))),('aa_capacity_machine_id.aa_date', '&lt;=', ((context_today()+relativedelta(weeks=-1,weekday=6)).strftime('%Y-%m-%d')))]"/>
+                    <filter string="Next Week" name="aa_next_week_production"
+                        domain="[('aa_capacity_machine_id.aa_date','&gt;=',(context_today()+relativedelta(weeks=0,weekday=0)).strftime('%Y-%m-%d')),
+                        ('aa_capacity_machine_id.aa_date','&lt;',(context_today()+relativedelta(weeks=1,days=6,weekday=0)).strftime('%Y-%m-%d'))
+                        ]" />
+                    <filter string="This month" name="aa_this_month_production"
+                        domain="[('aa_capacity_machine_id.aa_date','&gt;=',(context_today()).strftime('%Y-%m-01')),
+                        ('aa_capacity_machine_id.aa_date','&lt;',(context_today()+relativedelta(months=1)).strftime('%Y-%m-01'))
+                        ]" />
+                    <filter string="Last month" name="aa_last_month_production"
+                        domain="[('aa_capacity_machine_id.aa_date','&lt;=',(context_today()).strftime('%Y-%m-01')),
+                        ('aa_capacity_machine_id.aa_date','&gt;',(context_today()-relativedelta(months=1)).strftime('%Y-%m-01'))
+                        ]" />
+                    <filter string="Next month" name="aa_next_month_production"
+                        domain="[('aa_capacity_machine_id.aa_date','&gt;=',(context_today()+relativedelta(months=1)).strftime('%Y-%m-01')),
+                        ('aa_capacity_machine_id.aa_date','&lt;',(context_today()+relativedelta(months=2)).strftime('%Y-%m-01'))
+                        ]" />
+                    <filter string="This Year" name="aa_this_year_production"
+                        domain="[('aa_capacity_machine_id.aa_date','&gt;=',(context_today()).strftime('%Y-01-%d')),
+                        ('aa_capacity_machine_id.aa_date','&lt;',(context_today()+relativedelta(years=1)).strftime('%Y-01-%d'))
+                        ]" />
+                    <filter string="Last Year" name="aa_last_year_production"
+                        domain="[('aa_capacity_machine_id.aa_date','&lt;=',(context_today()).strftime('%Y-01-%d')),
+                        ('aa_capacity_machine_id.aa_date','&gt;',(context_today()-relativedelta(years=1)).strftime('%Y-01-%d'))
+                        ]" />
+                    <filter string="Next Year" name="aa_next_year_production" 
+                        domain="[('aa_capacity_machine_id.aa_date','&gt;=',(context_today()+relativedelta(years=1)).strftime('%Y-01-%d')),
+                        ('aa_capacity_machine_id.aa_date','&lt;',(context_today()+relativedelta(years=2)).strftime('%Y-01-%d'))
+                        ]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Project" name="project" context="{'group_by':'project_id'}"/>
+                        <filter string="Stage" name="stage" context="{'group_by':'stage_id'}"/>
+                        <filter string="Machine Capacity" name="aa_capacity_machine_id" context="{'group_by':'aa_capacity_machine_id'}"/>
+                        <filter string="Machine" name="aa_resource_id" context="{'group_by':'aa_resource_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="aa_act_open_task_kanban_view_replan_today" model="ir.actions.act_window">
+            <field name="name">Dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="view_id" ref="view_task_dashboard_kanban"/>
+            <field name="context">{'search_default_aa_capacity_machine_id': 1, 'search_default_aa_replan_today': 1, 'search_default_production': 1}</field>
+            <field name="search_view_id" ref="aa_view_task_dashboard_search"/>
+        </record>
+
+        <menuitem name="Menu Planning" id="aa_menu_task_ansova" parent="project.menu_main_pm" sequence="2"/>
+
+        <menuitem name="Task Plan Today" id="aa_menu_task_replan_today" parent="aa_menu_task_ansova" sequence="10" action="aa_act_open_task_kanban_view_replan_today"/>
+
+    </data>
+</odoo>

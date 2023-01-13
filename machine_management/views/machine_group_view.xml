@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="aa_machine_group_tree" model="ir.ui.view">
+            <field name="name">machine_group.tree</field>
+            <field name="model">aa.machine.group</field>
+            <field name="arch" type="xml">
+                <tree default_order='aa_code' delete="false">
+                    <field name="aa_code"/>
+                    <field name="aa_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="aa_machine_group_form" model="ir.ui.view">
+            <field name="name">form.machine_group</field>
+            <field name="model">aa.machine.group</field>
+            <field name="arch" type="xml">
+                <form delete="false">
+                    <sheet>
+                        <group string="Machine Group">
+                            <group>
+                                <field name="aa_code" required="1"/>
+                                <field name="aa_name" required="1"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_aa_machine_group" model="ir.actions.act_window">
+            <field name="name">Machine Group</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">aa.machine.group</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Machine Group"
+                  id="aa_menu_machine_group"
+                  parent="project.menu_project_config"
+                  action="action_aa_machine_group"
+                  sequence="10"/>
+
+    </data>
+</odoo>

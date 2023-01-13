@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE xml>
+
+<templates id="resource_available_template" xml:space="preserve">
+    <t t-name="MachineDashboardDetails">
+        <div style="overflow: auto; height: 100%; width:max-content;">
+            <button class="search-data btn btn-primary">Go</button>
+            <table class="avail-report fht-table" border="1">
+                <thead>
+                    <t t-foreach="widget.aa_machine_header" t-as="header">
+                        <tr>
+                            <td rowspan="3" class="table_header celda_encabezado_general" style="border-bottom: 0px; height: 76px; width:169px;">Machines</td>
+                            <t t-foreach="header.header" t-as="date">
+                                <td class="table_header_date celda_encabezado_general" style="text-align:center;width: 150px;"><t t-esc="date"/></td>
+                            </t>
+                        </tr>
+                    </t>
+                </thead>
+                <tbody>
+                    <t t-foreach="widget.aa_machine_info" t-as="detail">
+                        <tr>
+                            <td class="table_header resource-details celda_encabezado_general" t-att-data-id="detail.id">
+                                <p style="white-space: nowrap; overflow: hidden; width: 150px; text-overflow: ellipsis;"><t t-esc="detail.name"/></p>
+                            </td>
+                            <t t-set="i" t-value="0"/>
+                            <t t-foreach="noOfDays" t-as="i">
+                                <td class="celda_encabezado_general tooltiptext" t-att-title="tooltipvalue">&amp;nbsp;<!-- <t t-esc="detail.progress" t-options='{"widget": "progressbar"}'/> -->
+                                    <!-- <div class="progress md-progress" style="height: 20px">
+                                        <div class="progress-bar" role="progressbar" style="width: 25%; height: 20px" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><t t-esc="detail.progress"/>%</div>
+                                    </div> -->
+                                </td>
+                                <t t-set="i" t-value="i+1"/>
+                            </t>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </t>
+    <t t-name="ProgressBar" t-extend="ProgressBar">
+        <t t-jquery='.o_progressbar_complete' t-operation='replace'>
+            <t t-if="widget.value >= 100">
+                <div style="background-color: red; height: 100%;"/>
+            </t>
+            <t t-else="">
+                <div class="o_progressbar_complete"/>
+            </t>
+        </t>
+    </t>
+</templates>
