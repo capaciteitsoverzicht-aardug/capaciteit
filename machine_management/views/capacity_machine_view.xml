@@ -87,8 +87,8 @@
             <field name="name">capacity.machine.kanban</field>
             <field name="model">aa.capacity.machine</field>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_small_column oe_kanban_card oe_kanban_global_click o_kanban_record kanban_large_width" default_group_by="aa_resource_id" disable_drag_drop="true"
-                disable_sort="true" create="false" edit="false" delete="false" disable_sort_column="true" group_create="false">
+                <kanban class="o_kanban_small_column oe_kanban_card oe_kanban_global_click o_kanban_record kanban_large_width" default_group_by="aa_resource_id" records_draggable="false" groups_draggable="false"
+                disable_sort="true" create="false" edit="false" delete="false" disable_sort_column="true" group_create="false" js_class="machine_kanban">
                     <field name="aa_name"/>
                     <field name="aa_capacity"/>
                     <field name="aa_html"/>

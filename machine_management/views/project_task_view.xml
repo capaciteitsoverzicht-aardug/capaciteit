@@ -34,7 +34,7 @@
             <field name="name">task.dashboard.kanban</field>
             <field name="model">project.task</field>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_small_column o_kanban_project_tasks kanban_large_width" on_create="quick_create" quick_create_view="project.quick_create_task_form" examples="project">
+                <kanban class="o_kanban_small_column o_kanban_project_tasks kanban_large_width" on_create="quick_create" quick_create_view="project.quick_create_task_form" groups_draggable="false" js_class="machine_kanban" examples="project">
                     <field name="color"/>
                     <field name="priority"/>
                     <field name="stage_id" options='{"group_by_tooltip": {"description": "Stage Description", "legend_priority": "Use of stars"}}'/>
@@ -67,8 +67,8 @@
                     <field name="aa_kanban_color"/>
                     <templates>
                         <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_dblclick #{record.aa_kanban_color.value}">
-                                <div class="oe_fold_column oe_kanban_content" t-att-data-id="record.id.value" style="opacity:1; background:white;">
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card  #{record.aa_kanban_color.value}" class="oe_kanban_global_dblclick">
+                                <div class="oe_fold_column oe_kanban_content" t-att-data-id="record.id.value" style="opacity:1; background:white; height: 120px;">
                                     <t t-if="record.aa_startup.raw_value">
                                         <input type="hidden" class="o_column_go_normal" t-att-value='record.aa_capacity_date.value' name='record_date'/>
                                         <field name="aa_progress_bar" widget="progressbar" style="width:100% !important"/><br/>

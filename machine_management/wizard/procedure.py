@@ -48,7 +48,7 @@ class aa_procedures(models.TransientModel):
                     'aa_parent_capacity': parentCapacity and parentCapacity.id})
                 nextDay = nextDay + datetime.timedelta(days=1)
         for parentCap in parentCapacityList:
-            parentCap.update_parent_capacities(parentCap)
+            parentCap.update_zero_capacities()
 
         #should not be necessary TODO
         #self.env.cr.execute(""" DELETE FROM aa_capacity_machine 

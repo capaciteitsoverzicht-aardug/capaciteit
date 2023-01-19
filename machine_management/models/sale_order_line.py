@@ -16,9 +16,8 @@ class SaleOrderLine(models.Model):
     aa_capacity_machine_id = fields.Many2one('aa.capacity.machine',
         string='Uitvoering')
     aa_prod_time_total_est = fields.Float(string='PTI')
-    aa_prod_time_total_norm = fields.Float(
-        compute='aa_compute_total_production_time',
-        string='PTB', store=True)
+    aa_prod_time_total_norm = fields.Float(string='PTB',
+        compute='aa_compute_total_production_time', store=True)
 
     @api.depends('product_uom_qty', 'product_id.aa_prod_time_est',
                  'product_id.aa_setup_time_est1', 'product_id.aa_setup_time_est2')

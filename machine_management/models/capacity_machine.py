@@ -52,18 +52,28 @@ class MachineCapacity(models.Model):
     aa_zero = fields.Boolean(related="aa_resource_id.aa_zero", store=True)
 
     # Need to check
-    def update_parent_capacities(self, record):
-        totalCapacity = 0.0
-        childCaps = self.search([('aa_parent_capacity', '=', record.id)])
-        if childCaps:
-            for childCap in childCaps:
-                totalCapacity += childCap.aa_capacity
-            record.aa_capacity = totalCapacity
+    # def update_parent_capacities(self, record):
+    #     totalCapacity = 0.0
+    #     childCaps = self.search([('aa_parent_capacity', '=', record.id)])
+    #     if childCaps:
+    #         for childCap in childCaps:
+    #             totalCapacity += childCap.aa_capacity
+    #         record.aa_capacity = totalCapacity
+    #     else:
+    #         minDate = datetime.datetime.combine(record.aa_date, datetime.datetime.min.time())
+    #         maxDate = datetime.datetime.combine(record.aa_date, datetime.datetime.max.time())
+    #         record.aa_capacity = (record.aa_resource_id and
+    #             record.aa_resource_id.calendar_id.get_work_hours_count(minDate, maxDate))
+
+    def update_zero_capacities(self):
+        child_cap = self.search([('aa_parent_capacity', '=', self.id)])
+        if child_cap:
+            self.aa_capacity = sum(child_cap.mapped('aa_capacity'))
         else:
-            minDate = datetime.datetime.combine(record.aa_date, datetime.datetime.min.time())
-            maxDate = datetime.datetime.combine(record.aa_date, datetime.datetime.max.time())
-            record.aa_capacity = (record.aa_resource_id and
-                record.aa_resource_id.calendar_id.get_work_hours_count(minDate, maxDate))
+            minDate = datetime.datetime.combine(self.aa_date, datetime.datetime.min.time())
+            maxDate = datetime.datetime.combine(self.aa_date, datetime.datetime.max.time())
+            self.aa_capacity = (self.aa_resource_id and
+                self.aa_resource_id.calendar_id.get_work_hours_count(minDate, maxDate))
 
     # Need to check
     @api.depends('aa_resource_id', 'aa_parent_capacity', 'aa_resource_id.calendar_id')
@@ -75,31 +85,40 @@ class MachineCapacity(models.Model):
             if record.aa_parent_capacity:
                 record.aa_capacity = (record.aa_resource_id and
                     record.aa_resource_id.calendar_id.get_work_hours_count(minDate, maxDate))
-            else:
-                self.update_parent_capacities(record)
+            if record.aa_zero:
+                record.update_zero_capacities()
+            # else:
+            #     self.update_parent_capacities(record)
 
     # Need to check
-    def update_remain_parent_capacities(self, record):
-        totalRemCapacity = 0.0
-        calRecRemCap = 0.0
-        childCaps = self.search([('aa_parent_capacity', '=', record.id)])
-        if childCaps:
-            for childCap in childCaps:
-                if childCap.aa_remain_capacity == 0.0:
-                    calRecRemCap = childCap.aa_capacity - childCap.aa_prod_time_total_est
-                totalRemCapacity += childCap.aa_remain_capacity
-            record.aa_remain_capacity = (totalRemCapacity + calRecRemCap) - record.aa_prod_time_total_est
+    # def update_remain_parent_capacities(self, record):
+    #     totalRemCapacity = 0.0
+    #     calRecRemCap = 0.0
+    #     childCaps = self.search([('aa_parent_capacity', '=', record.id)])
+    #     if childCaps:
+    #         for childCap in childCaps:
+    #             if childCap.aa_remain_capacity == 0.0:
+    #                 calRecRemCap = childCap.aa_capacity - childCap.aa_prod_time_total_est
+    #             totalRemCapacity += childCap.aa_remain_capacity
+    #         record.aa_remain_capacity = (totalRemCapacity + calRecRemCap) - record.aa_prod_time_total_est
+    #     else:
+    #         record.aa_remain_capacity = record.aa_capacity - record.aa_prod_time_total_est
+
+    def update_zero_remian_capacities(self):
+        child_cap = self.search([('aa_parent_capacity', '=', self.id)])
+        if child_cap:
+            self.aa_remain_capacity = sum(child_cap.mapped('aa_remain_capacity')) - self.aa_prod_time_total_est
         else:
-            record.aa_remain_capacity = record.aa_capacity - record.aa_prod_time_total_est
+            self.aa_remain_capacity = self.aa_capacity - self.aa_prod_time_total_est
 
     # Need to check
     @api.depends('aa_parent_capacity', 'aa_prod_time_total_est', 'aa_capacity')
     def aa_compute_remain_capacity(self):
-        for record in self:
+        for record in self.sorted(key='id', reverse=True):
             if record.aa_parent_capacity:
                 record.aa_remain_capacity = record.aa_capacity - record.aa_prod_time_total_est
             else:
-                self.update_remain_parent_capacities(record)
+                record.update_zero_remian_capacities()
 
     # Done
     @api.depends('aa_date')

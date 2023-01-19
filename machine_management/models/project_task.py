@@ -6,6 +6,7 @@
 #                                                                            #
 ##############################################################################
 
+from datetime import date, datetime
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
@@ -35,6 +36,24 @@ class MachineProjectTask(models.Model):
     aa_kanban_color = fields.Char(compute='_compute_color')
     aa_related_remain_capacity = fields.Float(related='aa_capacity_machine_id.aa_remain_capacity')
     # aa_default_code = fields.Char(related='sale_line_id.product_id.default_code')
+
+    @api.model
+    def aa_action_normal_machines(self, recordDate):
+        view = self.env.ref('machine_management.view_task_dashboard_kanban')
+        formView = self.env.ref('project.view_task_form2')
+        date = recordDate.split('|')[1].split(' ')[0]
+        machine = recordDate.split('|')[0][:-1]
+        formetedDate = datetime.strptime(date, '%d-%m-%Y').strftime('%Y-%m-%d')
+        action = {'type': 'ir.actions.act_window',
+                  'name': 'Show Machine',
+                  'res_model': 'project.task',
+                  'views': [[view.id, 'kanban'], [formView.id, 'form']],
+                  'domain':[['aa_capacity_date','=',formetedDate],
+                            ['aa_capacity_machine_id.aa_machine_group_code','ilike', machine]],
+                  'view_id': view.id,
+                  'search_view_id': self.env.ref('machine_management.aa_view_task_dashboard_search').id,
+                  'context': {'group_by':'aa_capacity_machine_id'}}
+        return action
 
     # @api.depends('sale_order_id', 'sale_order_id.order_line')
     # def _get_sale_order_lines(self):

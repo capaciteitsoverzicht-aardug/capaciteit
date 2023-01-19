@@ -1,38 +1,56 @@
-odoo.define('task_advance.edit_kanban', function (require) {
-'use strict';
+/** @odoo-module */
 
-    var KanbanRecord = require('web.KanbanRecord');
-    var KanbanColumn = require('web.KanbanColumn');
+import { kanbanView } from '@web/views/kanban/kanban_view';
+import { KanbanRenderer } from "@web/views/kanban/kanban_renderer";
+import { KanbanRecord } from '@web/views/kanban/kanban_record';
+import { registry } from '@web/core/registry';
 
-    KanbanRecord.include({
-        _render: function () {
-            this._super.apply(this, arguments);
-            if (this.$el.hasClass('oe_kanban_global_dblclick')) {
-                this.$el.on('dblclick', this.proxy('_onGlobalClick'));
-                this.$el.on('click', this.proxy('_onFoldColumnClick'));
-            }
-            if (this.$el.hasClass('open_kanban_machines')) {
-                this.$el.on('click', this.proxy('_openMachineRecords'));
-            }
-            return $.when.apply(this, this.defs);
-        },
-        _onFoldColumnClick: function() {
-            if ($(this.$el[0].children[0]).height() === 120){
-                $(this.$el[0].children[0]).css('height', '100%');
+export class MachineKanbanRecord extends KanbanRecord {
+    
+    onGlobalClick(ev) {
+        if (ev.target.closest('.oe_kanban_global_dblclick')) {
+            if (ev.target.closest('.oe_kanban_global_dblclick').children[0].classList.contains('oe_update_column')){
+                ev.target.closest('.oe_kanban_global_dblclick').children[0].classList.remove('oe_update_column')
             }
             else{
-                $(this.$el[0].children[0]).css('height', '120');
+                ev.target.closest('.oe_kanban_global_dblclick').children[0].classList.add('oe_update_column')
             }
-        },
-        _openMachineRecords: function() {
-            var self = this;
-            this._rpc({
-                model: 'project.task',
-                method: 'aa_action_normal_machines',
-                args: [this.recordData.aa_name],
-            }).then(function (action) {
-                self.do_action(action);
-            });
+            return;
         }
-	});
+        else{
+            if (ev.target.closest('.open_kanban_machines')) {
+                const action = this.props.record.model.orm.call('project.task', "aa_action_normal_machines", [], {
+                    recordDate : this.props.record.data.aa_name
+                });
+                return this.action.doAction(action);
+            }
+            return super.onGlobalClick(ev);
+        }
+    }
+}
+
+export class MachineKanbanRenderer extends KanbanRenderer { 
+    async o_column_go_zero(group){
+        history.back();
+    }
+
+    async o_column_go_normal(group){
+        if (group.records[0].resModel === "project.task") {
+            const action = await this.orm.call('project.task', "aa_action_normal_machines", [], {
+                recordDate : group.displayName
+            });
+            this.actionService.doAction(action);
+        }
+        return;
+    }
+}
+
+MachineKanbanRenderer.components = {
+    ...KanbanRenderer.components,
+    KanbanRecord: MachineKanbanRecord,
+};
+
+registry.category('views').add('machine_kanban', {
+    ...kanbanView,
+    Renderer: MachineKanbanRenderer,
 });

@@ -18,8 +18,8 @@
     'category': 'Project',
     'license': 'LGPL-3',
     'version': '16.0',
-    'depends': ['project', 'sale_management', 'product',
-                'resource', 'sale', 'base', 'sale_project'],
+    'depends': ['project', 'sale_management', 'product', 'hr',
+                'resource', 'sale', 'base', 'sale_project','web'],
     'data': [
         'security/ir.model.access.csv',
         'data/project_data.xml',
@@ -34,6 +34,8 @@
     'assets': {
         'web.assets_backend': [
             'machine_management/static/src/scss/*',
+            # 'machine_management/static/src/js/all_machine_kanban.js',
+            'machine_management/static/src/js/edit_kanban.js',
             '/machine_management/static/src/xml/aa_templates.xml'
         ],
         'web.assets_qweb': [
