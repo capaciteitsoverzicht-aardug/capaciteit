@@ -36,10 +36,10 @@ export class MachineKanbanRenderer extends KanbanRenderer {
 
     async o_column_go_normal(group){
         if (group.records[0].resModel === "project.task") {
-            const action = await this.orm.call('project.task', "aa_action_normal_machines", [], {
+            const action = await group.model.orm.call('project.task', "aa_action_normal_machines", [], {
                 recordDate : group.displayName
             });
-            this.actionService.doAction(action);
+            group.model.action.doAction(action);
         }
         return;
     }
