@@ -14,7 +14,7 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DFORMAT
 class MachineCapacity(models.Model):
     _name = 'aa.capacity.machine'
     _rec_name = 'aa_name'
-    _order = 'aa_date,aa_name'
+    _order = 'aa_date,aa_capacity'
 
     aa_name = fields.Char(string='Name')
     aa_resource_id = fields.Many2one('resource.resource', string='Machine')
