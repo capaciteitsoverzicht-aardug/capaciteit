@@ -13,6 +13,7 @@ from odoo.exceptions import ValidationError
 
 class MachineProjectTask(models.Model):
     _inherit = 'project.task'
+    _order = 'aa_startup desc'
 
     aa_production_start_time = fields.Datetime('Production Start Time')
     aa_production_end_time = fields.Datetime('Production End Time')
