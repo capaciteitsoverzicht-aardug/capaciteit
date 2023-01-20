@@ -117,6 +117,7 @@ class MachineCapacity(models.Model):
         for record in self.sorted(key='id', reverse=True):
             if record.aa_parent_capacity:
                 record.aa_remain_capacity = record.aa_capacity - record.aa_prod_time_total_est
+                record.aa_parent_capacity.update_zero_remian_capacities()
             else:
                 record.update_zero_remian_capacities()
 
