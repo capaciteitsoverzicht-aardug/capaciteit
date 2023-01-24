@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="so_stage_dependency_view_gantt" model="ir.ui.view">
+            <field name="name">so.stage.dependency.view.gantt</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project_enterprise.project_task_view_gantt"/>
+            <field name="arch" type="xml">
+                <xpath expr="//gantt" position="attributes">
+                    <attribute name="color">x_aa_av_so_stage_color</attribute>
+                </xpath>
+            </field>
+        </record>
+         <record id="project_task_dependency_view_gantt_inherit" model="ir.ui.view">
+            <field name="name">project.task.dependency.view.gantt.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project_enterprise.project_task_dependency_view_gantt"/>
+            <field name="arch" type="xml">
+                <xpath expr="//gantt" position="attributes">
+                    <attribute name="color">x_aa_av_so_stage_color</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_form_inherit_task_data" model="ir.ui.view">
+            <field name="name">project.task.form.inherit.task.data</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='extra_info']" position="after">
+                    <page name="planning_info" string="Planning">
+                        <group>
+                            <group name="order" string="Order">
+                                <field name="x_aa_av_order_name"/>
+                                <field name="x_aa_av_project_description"/>
+                                <field name="x_aa_av_tonnage"/>
+                                <field name="x_aa_av_conservering"/>
+                                <field name="x_aa_av_surface"/>
+                                <field name="x_aa_av_color_product_id"/>
+                            </group>
+                            <group name="transport" string="Transport">
+                                <field name="x_aa_av_transport"/>
+                                <field name="x_aa_av_transport_stage"/>
+                                <field name="x_aa_av_components_transport"/>
+                                <field name="x_aa_av_max_transport_length"/>
+                                <field name="x_aa_av_max_transport_width"/>
+                                <field name="x_aa_av_delivery_date"/>
+                                <field name="x_aa_av_pickup_date"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

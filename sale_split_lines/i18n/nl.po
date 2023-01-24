@@ -1,0 +1,228 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_split_lines
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-13 15:19+0000\n"
+"PO-Revision-Date: 2023-01-13 15:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_components_transport
+msgid "Amount of components transport"
+msgstr "Aantal onderdelen vracht"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__x_aa_av_number_of_delivery
+msgid "Amount of deliveries"
+msgstr "Aantal vrachten per dag"
+
+#. module: sale_split_lines
+#: model:ir.model.fields.selection,name:sale_split_lines.selection__project_task__x_aa_av_transport__ansova
+msgid "Ansova"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields.selection,name:sale_split_lines.selection__project_task__x_aa_av_transport__client
+msgid "Client"
+msgstr "Klant"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_color_product_id
+msgid "Color"
+msgstr "Kleur"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_conservering
+msgid "Conservering"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_order_name
+msgid "Customer Order name"
+msgstr "Klant order naam"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_delivery_date
+msgid "Delivery date"
+msgstr "Levering vracht"
+
+#. module: sale_split_lines
+#: model_terms:ir.ui.view,arch_db:sale_split_lines.sale_order_split_line_form
+msgid "Discard"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_split_lines
+#: model_terms:ir.ui.view,arch_db:sale_split_lines.sale_order_split_line_form
+msgid "How many lines You want to split ? Please Enter Number."
+msgstr "Hoeveel vrachten verwacht je voor dit project?"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__x_aa_av_number_of_lines
+msgid "Number of Lines"
+msgstr "Aantal leveringen"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_order_line__x_aa_av_surface
+msgid "Oppervlakte (m2) per vracht"
+msgstr ""
+
+#. module: sale_split_lines
+#: model_terms:ir.ui.view,arch_db:sale_split_lines.project_task_form_inherit_task_data
+msgid "Order"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_project_description
+msgid "Order Description"
+msgstr "Project beschrijving"
+
+#. module: sale_split_lines
+#: model_terms:ir.ui.view,arch_db:sale_split_lines.sale_order_split_line_form
+msgid "Order Line"
+msgstr "Orderregel"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__x_aa_av_order_line_ids
+msgid "Order Lines"
+msgstr "Orderregels"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_pickup_date
+msgid "Pickup date"
+msgstr "Ophalen vracht"
+
+#. module: sale_split_lines
+#: model_terms:ir.ui.view,arch_db:sale_split_lines.project_task_form_inherit_task_data
+msgid "Planning"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model,name:sale_split_lines.model_sale_split_line
+msgid "SO Split Line"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model,name:sale_split_lines.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Verkooporderregel"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_order_line__x_aa_av_scheduled_date
+msgid "Schedule Date"
+msgstr "Plandatum"
+
+#. module: sale_split_lines
+#: model_terms:ir.ui.view,arch_db:sale_split_lines.sale_order_split_line_form
+#: model_terms:ir.ui.view,arch_db:sale_split_lines.view_order_form_sale_split_lines
+msgid "Split Line"
+msgstr "Split regels"
+
+#. module: sale_split_lines
+#: model:ir.actions.act_window,name:sale_split_lines.action_sale_order_split_line
+msgid "Split Method"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_so_stage_color
+msgid "Stage Color"
+msgstr "Fase kleur"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__x_aa_av_delivery_date
+msgid "Start Date"
+msgstr "Startdatum"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_surface
+msgid "Surface"
+msgstr "Oppervlakte"
+
+#. module: sale_split_lines
+#: model:ir.model,name:sale_split_lines.model_project_task
+msgid "Task"
+msgstr "Taak"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_tonnage
+msgid "Tonnage"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_order_line__x_aa_av_tonnage
+msgid "Tonnage per vracht"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__x_aa_av_surface
+msgid "Totaal Oppervlakte (m2)"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_sale_split_line__x_aa_av_tonnage
+msgid "Totaal Tonnage"
+msgstr ""
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_transport
+#: model_terms:ir.ui.view,arch_db:sale_split_lines.project_task_form_inherit_task_data
+msgid "Transport"
+msgstr "Transport"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_max_transport_length
+msgid "Transport max length"
+msgstr "Transport max lengte"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_max_transport_width
+msgid "Transport max width"
+msgstr "Transport max breedte"
+
+#. module: sale_split_lines
+#: model:ir.model.fields,field_description:sale_split_lines.field_project_task__x_aa_av_transport_stage
+msgid "Transport stage"
+msgstr "Transport fase"
