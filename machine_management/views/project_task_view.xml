@@ -41,6 +41,7 @@
                     <field name="id"/>
                     <field name="sequence"/>
                     <field name="date_deadline"/>
+                    <field name="partner_id"/>
                     <field name="message_needaction_counter"/>
                     <field name="displayed_image_id"/>
                     <field name="active"/>
@@ -58,33 +59,40 @@
                     <field name="sale_order_id"/>
                     <field name="aa_progress_bar"/>
                     <field name="aa_startup"/>
+                    <field name="x_aa_av_color_product_id"/>
+                    <field name="x_aa_av_order_name"/>
+                    <field name="aa_task_count"/>
                     <!-- <field name="aa_order_line_ids"/> -->
                     <!-- <field name="aa_kanban_line"/> -->
-                    <!-- <field name="aa_bug"/> -->
-                    <!-- <field name="aa_lock"/> -->
+                    <field name="aa_bug"/>
+                    <field name="aa_lock"/>
                     <field name="aa_capacity_date"/>
+                    <field name="x_aa_av_surface"/>
                     <!-- <field name="is_production_done"/> -->
                     <field name="aa_kanban_color"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card  #{record.aa_kanban_color.value}" class="oe_kanban_global_dblclick">
-                                <div class="oe_fold_column oe_kanban_content" t-att-data-id="record.id.value" style="opacity:1; background:white; height: 120px;">
-                                    <t t-if="record.aa_startup.raw_value">
+                                <t t-if="record.aa_startup.raw_value">
+                                    <div class="oe_fold_column oe_kanban_content" t-att-data-id="record.id.value" style="background:white; height: 100%; opacity: 1">
                                         <input type="hidden" class="o_column_go_normal" t-att-value='record.aa_capacity_date.value' name='record_date'/>
                                         <field name="aa_progress_bar" widget="progressbar" style="width:100% !important"/><br/>
                                         <b>Remain Capacity : <field name="aa_related_remain_capacity" widget="float_time"/></b>
-                                    </t>
-                                    <t t-else="">
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="oe_fold_column oe_kanban_content oe_update_column" t-att-data-id="record.id.value" style="background:white; height: 100%; opacity: 1">
                                         <div class="aa_task_kanaban_header" style="width: 298px; height:26px; ">
                                             <div>
                                                 <span class="find_same_so pull-left" style="width: 225px; padding: 0; overflow: hidden; position:relative; text-overflow: ellipsis; white-space: nowrap">
-                                                    ORDER <field name="sale_order_id"/>: <!-- [<field name="aa_default_code"/>] -->
+                                                    <field name="sale_order_id"/>: <field name="x_aa_av_project_description"/>
                                                 </span>
-                                                <span style="margin-right:5px;">
+                                            </div>
+                                            <div style="margin-left:auto">
+                                                <span>
                                                     (<field name="aa_production_time_count" widget="float_time"/>)
                                                 </span>
                                             </div>
-                                            <div class="fa fa-scissors fa-lg pull-right" style="margin-left:auto;"></div>
                                         </div>
                                         <div class="o_dropdown_kanban dropdown" groups="base.group_user">
                                             <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
@@ -99,56 +107,138 @@
                                                 <ul class="oe_kanban_colorpicker" data-field="color"/>
                                             </div>
                                         </div>
-                                        <div style="text-align: center;">
-                                            <li class="fa fa-lock fa-lg margin" style="color:gray;"></li>
-                                            <li class="fa fa-bug fa-lg margin" style="color:red;"></li>
-                                            <!-- <span style="margin-right:-23px;"><field name="aa_lock" widget="lock_status"/></span> -->
-                                            <!-- <span style="margin-right:-12px;"></span> -->
-                                            <!-- <field name="aa_bug" widget="bug_status"/> -->
-                                            <!-- <li class="fa fa-cart-plus fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li> -->
-                                            <!-- <li class="fa fa-upload fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li>
-                                            <li class="fa fa-picture-o fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li>
-                                            <li class="fa fa-pencil-square fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li> -->
-                                            <!-- <li class="fa fa-bug fa-lg margin" style="color:#b5383a;"></li> -->
-                                            <!-- <li class="fa fa-download fa-lg margin" style="color:#00a09d;"></li> -->
-                                           <!--  <li class="fa fa-level-up fa-lg margin" style="color:gray;"
-                                            t-att-data-id="record.id.value"></li>
-                                            <li class="fa fa-truck fa-lg margin" style="color:gray;"
-                                            t-att-data-id="record.id.value"></li> -->
-                                            <!-- <span style="margin-left:-10px;"><field name="is_production_done" widget="production_status"/></span> -->
+
+                                        <div style="font-size: 11px; background-color: whitesmoke; padding: 4px; margin: 0;">
+                                            <div class="row" style="height:30px">
+                                                <div style="margin-left:3%; max-width: 45%;">
+                                                    <div class="btn vos_order_group planning_kanban_button" style="background-color:yellow; color: black; text-align: center; border: 1px solid gray; border-radius: 3px; font-size: 15px; max-height:25px">
+                                                        <field name="x_aa_av_surface"/>
+                                                    </div>
+                                                </div>
+                                                <div style="margin-left: 5%; max-width: 20%;">
+                                                    <t t-if="record.partner_id and record.partner_id.raw_value">
+                                                        <img t-att-src="kanban_image('res.partner', 'avatar_128', record.partner_id.raw_value)" t-att-title="record.partner_id.value" t-att-alt="record.partner_id.value" class="oe_kanban_avatar o_image_24_cover"/>
+                                                    </t>
+                                                </div>
+                                                <div style="max-width: 25%;">
+                                                    <div style=" padding-top: 6px; height: 30px; width: 50px; background-color:#2C8397; color: white; text-align: center; border-radius: 4px; font-size: 15px;">
+                                                        <t t-if="record.x_aa_av_color_product_id">
+                                                            <t t-esc="record.x_aa_av_color_product_id.value.split(' ')[1]"/>
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-left:1%;">
+                                                <div class="text-left" style="text-transform: uppercase; max-width: 70%;">
+                                                    <t t-if="record.x_aa_av_color_product_id">
+                                                        <t t-esc="record.x_aa_av_color_product_id.value"/><br/>
+                                                    </t>
+                                                    <t t-if="record.x_aa_av_order_name">
+                                                        <t t-esc="record.x_aa_av_order_name.value"/><br/>
+                                                    </t>
+                                                    <t t-if="record.partner_id">
+                                                        <t t-esc="record.partner_id.value"/><br/>
+                                                    </t>
+                                                </div>
+                                                <div style="margin-left: 3%; max-width: 25%; margin-top: auto; margin-bottom: auto;">
+                                                    <div style=" height: 30px; width: 40px; background-color:black; color: white; text-align: center; font-size: 15px;">
+                                                        <field name="x_aa_av_color_product_id"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="height:30px">
+                                                <div style="margin-left:3%; max-width: 72%; font-size:15px">
+                                                    <li class="fa fa-level-up fa-lg margin" style="color:gray;"
+                                                    t-att-data-id="record.id.value"></li>
+                                                    <li class="fa fa-cart-plus fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li>
+                                                    <li class="fa fa-upload fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li>
+                                                    <li class="fa fa-picture-o fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li>
+                                                    <li class="fa fa-pencil-square fa-lg margin" style="color:gray;" t-att-data-id="record.id.value"></li>
+                                                    <li class="fa fa-truck fa-lg margin" style="color:gray;"
+                                                    t-att-data-id="record.id.value"></li>
+                                                    <li class="fa fa-download fa-lg margin" style="color:red;"></li>
+                                                    <li class="fa fa-lock fa-lg margin" style="color:green;"></li>
+                                                    <li class="fa fa-bug fa-lg margin" style="color:red;"></li>
+                                                </div>
+                                                <div style="max-width: 20%; margin-top: auto; margin-bottom: auto;">
+                                                   <div style=" height: 30px; width: 40px; background-color:black; color: white; text-align: center; font-size: 15px;">
+                                                      <t t-esc="record.aa_task_count.value"/><br/>
+                                                   </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <table border="0px solid black" 
-                                               cellpadding="2" 
-                                               style="margin-top: 4px">
-                                            <tbody>
-                                                <div class="row" style="margin-top:10px; color:white; margin-left:10px;">
-                                                    <div class="column" style="margin-left:22px;height: 20px;width: 50px; background-color:#2C8397; color: white; text-align: center; border-radius: 4px; font-size: 14px;">
-                                                        <field name="aa_quantity"/>
-                                                    </div>
-                                                    <div class="column" style="margin-left:22px;height: 20px;width: 185px; background-color:#2C8397; color: white; text-align: center; border-radius: 4px; font-size: 14px;">
-                                                        <field name="partner_id"/>
-                                                    </div>
-                                                </div>
-                                                <div class="row" style="margin-top:10px; margin-left:10px; text-align:center;">
-                                                    <div class="datum" t-att-data-id="record.id.value"
-                                                    style="color: darkorange;margin-left:15px;">
-                                                        <b><field name="date_deadline"/></b>
-                                                    </div>
-                                                    <!-- <div class="column" style="background-color:black; color:white; font-weight:bold; margin-left:25px; width:50px;border-radius: 4px;">
-                                                        <b><field name="aa_group_count"/></b>
-                                                    </div> -->
-                                                    <!-- <div class="column" style="background-color:black; color:white; font-weight:bold; margin-left:15px;  width:50px;border-radius: 4px;">
-                                                        <b><field name="aa_order_line_count"/></b>
-                                                    </div> -->
-                                                </div>
-                                            </tbody>
-                                        </table>
                                         <div style="height: 20px;"></div>
                                         <div>
+                                            <table>
+                                                <tr>
+                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
+                                                    <td class="text-left" style="min-width: 120px;">
+                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
+                                                        <field name="x_aa_av_surface"/>
+                                                        <!-- </t>&amp;nbsp; -->
+                                                    </td>
+                                                    <!-- <td class="text-left" style="min-width: 40px;">WVBR</td> -->
+                                                    <td class="text-left" colspan="5" style="min-width: 120px;">
+                                                        <field name="x_aa_av_components_transport"/>
+                                                        <!-- <t t-esc="record.data.vos_project_leader and record.data.vos_project_leader.data.display_name or ''"/> -->
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
+                                                    <td class="text-left" style="min-width: 120px;">
+                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
+                                                        <field name="x_aa_av_order_name"/>
+                                                        <!-- </t>&amp;nbsp; -->
+                                                    </td>
+                                                    <!-- <td class="text-left" style="min-width: 40px;">WVBR</td> -->
+                                                    <td class="text-left" colspan="5" style="min-width: 120px;">
+                                                        <field name="x_aa_av_project_description"/>
+                                                        <!-- <t t-esc="record.data.vos_project_leader and record.data.vos_project_leader.data.display_name or ''"/> -->
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
+                                                    <td class="text-left" style="min-width: 120px;">
+                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
+                                                        <field name="x_aa_av_tonnage"/>
+                                                        <!-- </t>&amp;nbsp; -->
+                                                    </td>
+                                                    <!-- <td class="text-left" style="min-width: 40px;">WVBR</td> -->
+                                                    <td class="text-left" colspan="5" style="min-width: 120px;">
+                                                        <field name="x_aa_av_delivery_date"/>
+                                                        <!-- <t t-esc="record.data.vos_project_leader and record.data.vos_project_leader.data.display_name or ''"/> -->
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
+                                                    <td class="text-left" style="min-width: 120px;">
+                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
+                                                        <field name="x_aa_av_pickup_date"/>
+                                                        <!-- </t>&amp;nbsp; -->
+                                                    </td>
+                                                    <!-- <td class="text-left" style="min-width: 40px;">WVBR</td> -->
+                                                    <td class="text-left" colspan="5" style="min-width: 120px;">
+                                                        <field name="x_aa_av_transport_stage"/>
+                                                        <!-- <t t-esc="record.data.vos_project_leader and record.data.vos_project_leader.data.display_name or ''"/> -->
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
+                                                    <td class="text-left" style="min-width: 120px;">
+                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
+                                                        <field name="x_aa_av_conservering"/>
+                                                        <!-- </t>&amp;nbsp; -->
+                                                    </td>
+                                                </tr>
+                                            </table>
                                             <!-- <b><field name="aa_kanban_line" widget="html"/></b> -->
                                         </div>
-                                    </t>
-                                </div>
+                                    </div>
+                                </t>
                             </div>
                         </t>
                     </templates>

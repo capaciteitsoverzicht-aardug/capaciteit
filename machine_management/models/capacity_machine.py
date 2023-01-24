@@ -7,6 +7,7 @@
 ##############################################################################
 
 import datetime
+# from datetime import date, datetime
 from odoo import api, exceptions, fields, models, _
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DFORMAT
 
@@ -133,7 +134,7 @@ class MachineCapacity(models.Model):
     # Done
     @api.depends('aa_capacity', 'aa_remain_capacity', 'aa_prod_time_total_est')
     def _compute_progress(self):
-        for rec in self:
+        for rec in self.sorted(key='id', reverse=True):
             if rec.aa_capacity > 0:
                 if rec.aa_prod_time_total_est > rec.aa_capacity:
                     rec.write({

@@ -19,7 +19,7 @@
     'license': 'LGPL-3',
     'version': '16.0',
     'depends': ['project', 'sale_management', 'product', 'hr',
-                'resource', 'sale', 'base', 'sale_project','web'],
+                'resource', 'sale', 'base', 'sale_project','web', 'ansova_crm_customizations'],
     'data': [
         'security/ir.model.access.csv',
         'data/project_data.xml',

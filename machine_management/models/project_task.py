@@ -36,6 +36,11 @@ class MachineProjectTask(models.Model):
     aa_capacity_date = fields.Date(related='aa_capacity_machine_id.aa_date', store=True)
     aa_kanban_color = fields.Char(compute='_compute_color')
     aa_related_remain_capacity = fields.Float(related='aa_capacity_machine_id.aa_remain_capacity')
+    aa_task_count = fields.Integer(related='sale_order_id.tasks_count')
+    x_aa_av_project_description = fields.Char(related='sale_order_id.x_aa_av_project_description')
+    aa_bug = fields.Boolean(string='Is Bug')
+    aa_lock = fields.Boolean(string='Is Lock')
+    is_production_done = fields.Boolean(string='Is Production Done')
     # aa_default_code = fields.Char(related='sale_line_id.product_id.default_code')
 
     @api.model
