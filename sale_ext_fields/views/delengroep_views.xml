@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <record id="view_ansova_delengroep_tree" model="ir.ui.view">
+            <field name="name">view.ansova.delengroep.tree</field>
+            <field name="model">ansova.delengroep</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="x_aa_av_currency_id" invisible="1"/>
+                    <field name="x_aa_av_name"/>
+                    <field name="x_aa_av_price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_ansova_delengroep_form" model="ir.ui.view">
+            <field name="name">view.ansova.delengroep.form</field>
+            <field name="model">ansova.delengroep</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="x_aa_av_currency_id" invisible="1"/>
+                            <field name="x_aa_av_name"/>
+                            <field name="x_aa_av_price"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_ansova_delengroep" model="ir.actions.act_window">
+            <field name="name">Delengroep</field>
+            <field name="res_model">ansova.delengroep</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id"/>
+            <field name="domain"></field>
+        </record>
+
+        <menuitem
+                name="Delengroep"
+                id="ansova_delengroep"
+                parent="sale.menu_sale_config"
+                action="action_ansova_delengroep"
+                sequence="200"/>
+
+    </data>
+</odoo>

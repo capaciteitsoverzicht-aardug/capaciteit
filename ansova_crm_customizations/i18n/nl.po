@@ -1,0 +1,300 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ansova_crm_customizations
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-13 15:17+0000\n"
+"PO-Revision-Date: 2023-01-13 15:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ansova_crm_customizations
+#. odoo-python
+#: code:addons/ansova_crm_customizations/models/mu.py:0
+#, python-format
+msgid "%s Mu = %s Gram/m²"
+msgstr "%s Mu/m² = %s Gram/m²"
+
+#. module: ansova_crm_customizations
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid ""
+"<span class=\"o_form_label o_td_label\" name=\"address_name\" attrs=\"{'invisible': [('x_aa_av_location_id', '=', False)]}\">\n"
+"                                    <b>Address</b>\n"
+"                                </span>"
+msgstr ""
+"<span class=\"o_form_label o_td_label\" name=\"address_name\" attrs=\"{'invisible': [('x_aa_av_location_id', '=', False)]}\">\n"
+"                                        <b>Adres</b>\n"
+"                                    </span>"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_mu_amount
+msgid "Amount of MU"
+msgstr "Hoeveelheid MU"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_parts
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_sale_order__x_aa_av_parts
+msgid "Amount of parts per ton"
+msgstr "Aantal delen per ton"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_total_kilos
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_sale_order__x_aa_av_total_kilos
+msgid "Amount of steel (kilo)"
+msgstr "Hoeveelheid staal (kilo)"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields.selection,name:ansova_crm_customizations.selection__crm_lead__x_aa_av_transport__ansova
+msgid "Ansova"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "CRM fields"
+msgstr "CRM velden"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_city
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "City"
+msgstr "Plaats"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields.selection,name:ansova_crm_customizations.selection__crm_lead__x_aa_av_transport__client
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "Client"
+msgstr "Klant"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_color_product_id
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "Color"
+msgstr "Kleur"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_connected_parts
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_sale_order__x_aa_av_connected_parts
+msgid "Connected parts"
+msgstr "Samengestelde delen"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_country_id
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "Country"
+msgstr "Land"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_order_name
+msgid "Customer Order name"
+msgstr "Klant order naam"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__x_aa_av_grams
+msgid "Gram/m²"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__id
+msgid "ID"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model,name:ansova_crm_customizations.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Lead/Verkoopkans"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_location_id
+msgid "Location"
+msgstr "Locatie"
+
+#. module: ansova_crm_customizations
+#: model:ir.model,name:ansova_crm_customizations.model_ansova_mu
+msgid "MU/Grams"
+msgstr "MU/Gram"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_product_product__x_aa_av_mu_ids
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_product_template__x_aa_av_mu_ids
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.product_normal_form_view_mu
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.product_template_only_form_view_mu
+msgid "MUs"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__x_aa_av_mu_m2
+msgid "Mu"
+msgstr "MU"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__x_aa_av_name
+msgid "Name"
+msgstr "Naam"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields.selection,name:ansova_crm_customizations.selection__crm_lead__x_aa_av_system__no_primer
+#: model:ir.model.fields.selection,name:ansova_crm_customizations.selection__sale_order__x_aa_av_system__no_primer
+msgid "No Primer"
+msgstr "Zonder primer"
+
+#. module: ansova_crm_customizations
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "Order"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_project_description
+msgid "Order Description"
+msgstr "Project beschrijving"
+
+#. module: ansova_crm_customizations
+#: model:ir.model,name:ansova_crm_customizations.model_product_template
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_ansova_mu__x_aa_av_product_id
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "Product"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_color_product_template_id
+msgid "Product Template"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model,name:ansova_crm_customizations.model_product_product
+msgid "Product Variant"
+msgstr "Productvariant"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_grams_amount
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_sale_order__x_aa_av_grams_amount
+msgid "Product amount (gram)"
+msgstr "Hoeveelheid product (gram)"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_product_kilo_amount
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_sale_order__x_aa_av_product_kilo_amount
+msgid "Product amount (kilo)"
+msgstr "Hoeveelheid product (kilo)"
+
+#. module: ansova_crm_customizations
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "Project Info"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model,name:ansova_crm_customizations.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_state_id
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "State"
+msgstr "Provincie"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_street
+msgid "Street"
+msgstr "Straat"
+
+#. module: ansova_crm_customizations
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "Street..."
+msgstr "Straat..."
+
+#. module: ansova_crm_customizations
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "Surface (m2)"
+msgstr "Oppervlakte (m2)"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_surface_estimate
+msgid "Surface estimate (m2)"
+msgstr "Geschat oppervlakte (m2)"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_system
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_sale_order__x_aa_av_system
+msgid "System"
+msgstr "Systeem"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_mu_id
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_sale_order__x_aa_av_mu_id
+msgid "Tickness in MU"
+msgstr "Dikte in MU"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_tons_steel
+msgid "Tonnage"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_transport
+msgid "Transport"
+msgstr ""
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_uv_resistant
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_sale_order__x_aa_av_uv_resistant
+msgid "UV Resistant"
+msgstr "UV bestendig"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields.selection,name:ansova_crm_customizations.selection__crm_lead__x_aa_av_system__with_primer
+#: model:ir.model.fields.selection,name:ansova_crm_customizations.selection__sale_order__x_aa_av_system__with_primer
+msgid "With Primer"
+msgstr "Met primer"
+
+#. module: ansova_crm_customizations
+#: model:ir.model.fields,field_description:ansova_crm_customizations.field_crm_lead__x_aa_av_zip
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_crm_lead_form_inherit_custom
+#: model_terms:ir.ui.view,arch_db:ansova_crm_customizations.view_order_form_inherit_fields_sale
+msgid "ZIP"
+msgstr "Postcode"

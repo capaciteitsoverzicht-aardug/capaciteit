@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="product_category_form_view_color_price">
+        <field name="name">product.category.form.view.color_price</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <group name="first" position="after">
+                <group name="purchase_price" string="Color group pricing">
+                    <field name="x_aa_av_currency_id" invisible="1"/>
+                    <field name="x_aa_av_price_m2"/>
+                </group>
+            </group>
+        </field>
+    </record>
+    <!-- Inherited form view of product.product -->
+    <record model="ir.ui.view" id="product_normal_form_view_color">
+        <field name="name">product.normal.form.view.color</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <field name="product_tag_ids" position="after">
+                <field name="x_aa_av_is_color"/>
+                <field name="x_aa_av_layer_title"/>
+            </field>
+        </field>
+    </record>
+    <!-- Inherited form view of product.template -->
+    <record model="ir.ui.view" id="product_template_only_form_view_color">
+        <field name="name">product.template.only.form.view.color</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <field name="product_tag_ids" position="after">
+                <field name="x_aa_av_is_color"/>
+                <field name="x_aa_av_layer_title"/>
+            </field>
+        </field>
+    </record>
+</odoo>

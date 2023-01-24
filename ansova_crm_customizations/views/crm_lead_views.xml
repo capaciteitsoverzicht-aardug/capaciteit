@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherited form view of crm.lead -->
+        <record id="view_crm_lead_form_inherit_custom" model="ir.ui.view">
+            <field name="name">view.crm.lead.form.inherit.custom</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='lead']" position="after">
+                    <page name="project_info" string="Project Info">
+                        <group>
+                            <group name="product" string="Product">
+                                <field name="x_aa_av_color_product_id"
+                                       options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True}"
+                                       domain="[('x_aa_av_is_color', '=', True)]"/>
+                                <field name="x_aa_av_color_product_template_id" invisible="1"/>
+                                <field name="x_aa_av_mu_id"
+                                       options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True}"
+                                       domain="[('x_aa_av_product_id', '=', x_aa_av_color_product_template_id)]"/>
+                                <field name="x_aa_av_system"/>
+                                <field name="x_aa_av_uv_resistant"/>
+                            </group>
+                            <group name="order" string="Order">
+                                <field name="x_aa_av_order_name"/>
+                                <field name="x_aa_av_project_description"/>
+                                <field name="x_aa_av_tons_steel"/>
+                                <field name="x_aa_av_parts"/>
+                                <field name="x_aa_av_connected_parts"/>
+                                <field name="x_aa_av_surface_estimate"/>
+                                <field name="x_aa_av_grams_amount" invisible="1"/>
+                                <field name="x_aa_av_product_kilo_amount"/>
+                                <field name="x_aa_av_mu_amount" invisible="1"/>
+                            </group>
+                            <group string="Client">
+                                <field name="x_aa_av_transport"/>
+                                <field name="x_aa_av_location_id"/>
+                                <span class="o_form_label o_td_label" name="address_name"
+                                      attrs="{'invisible': [('x_aa_av_location_id', '=', False)]}">
+                                    <b>Address</b>
+                                </span>
+                                <div class="o_address_format"
+                                     attrs="{'invisible': [('x_aa_av_location_id', '=', False)]}">
+                                    <field name="x_aa_av_street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="x_aa_av_city" placeholder="City" class="o_address_city"/>
+                                    <field name="x_aa_av_state_id" class="o_address_state" placeholder="State"
+                                           options="{'no_open': True, 'no_quick_create': True}"
+                                           context="{'country_id': x_aa_av_country_id, 'default_country_id': x_aa_av_country_id, 'zip': x_aa_av_zip}"/>
+                                    <field name="x_aa_av_zip" placeholder="ZIP" class="o_address_zip"/>
+                                    <div name="partner_address_country" class="d-flex justify-content-between">
+                                        <field name="x_aa_av_country_id" placeholder="Country"
+                                               class="o_address_country"
+                                               options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
+                                    </div>
+                                </div>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

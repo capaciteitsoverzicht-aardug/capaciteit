@@ -1,0 +1,600 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_ext_fields
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-13 15:18+0000\n"
+"PO-Revision-Date: 2023-01-13 15:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Calculated discount:</span>"
+msgstr "<span class=\"o_form_label\">Aan u berekende korting: </span>"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Kleurwissels</span>"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Kraanbanen afplakken</span>"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Net discount:</span>"
+msgstr "<span class=\"o_form_label\">Netto korting:</span>"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Net project price:</span>"
+msgstr "<span class=\"o_form_label\">Uw netto project prijs: </span>"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Price per m2:</span>"
+msgstr "<span class=\"o_form_label\">Prijs per m2: </span>"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Prijsopbouw: </span>"
+msgstr "<span class=\"o_form_label\">Prijsopbouw:</span>"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Specials</span>"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Vormgroep 1</span>"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Vormgroep 2</span>"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">Vormgroep 3</span>"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">m2</span>"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "<span class=\"o_form_label\">per m2</span>"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_uitvoeringsperiode
+msgid "Aangeboden uitvoeringsperiode"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_kleurwissels_amount
+msgid "Aantal kleurwissels"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__sale_order__x_aa_av_transport__ansova
+msgid "Ansova"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_base_price
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Base Price"
+msgstr "Basisprijs"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__sale_order__x_aa_av_corrosivity__c1
+msgid "C1"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__sale_order__x_aa_av_corrosivity__c2
+msgid "C2"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__sale_order__x_aa_av_corrosivity__c3
+msgid "C3"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__sale_order__x_aa_av_corrosivity__c4
+msgid "C4"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__sale_order__x_aa_av_corrosivity__c5
+msgid "C5"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Calculation"
+msgstr "Calculatie"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_city
+msgid "City"
+msgstr "Plaats"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__sale_order__x_aa_av_transport__client
+msgid "Client"
+msgstr "Klant"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Color"
+msgstr "Kleur"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_product_category__x_aa_av_price_m2
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_color_group_price_m2
+msgid "Color group price m2"
+msgstr "Kleurgroep prijs m2"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.product_category_form_view_color_price
+msgid "Color group pricing"
+msgstr "Kleurgroep prijzen"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_color_layer_1_id
+msgid "Color layer 1"
+msgstr "Kleurlaag 1"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_color_layer_2_id
+msgid "Color layer 2"
+msgstr "Kleurlaag 2"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_corrosivity
+msgid "Corrosivity"
+msgstr "Corrosiviteitsklasse"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_country_id
+msgid "Country"
+msgstr "Land"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep__create_uid
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep__create_date
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_order_name
+msgid "Customer Order name"
+msgstr "Klant order naam"
+
+#. module: sale_ext_fields
+#: model:ir.actions.act_window,name:sale_ext_fields.action_ansova_delengroep
+#: model:ir.model,name:sale_ext_fields.model_ansova_delengroep
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_delengroep_id
+#: model:ir.ui.menu,name:sale_ext_fields.ansova_delengroep
+msgid "Delengroep"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_discount
+msgid "Discount per m2"
+msgstr "Korting per m2"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep__display_name
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_net_discount
+msgid "Extra discount"
+msgstr "Extra korting"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep__x_aa_av_price
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__x_aa_av_price
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_extra_per_delengroep
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_1_price
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_2_price
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_3_price
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_4_price
+msgid "Extra per m2"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Files"
+msgstr "Bestanden"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_subtotal_total
+msgid "Gross total"
+msgstr "Bruto Subtotaal"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep__id
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_product_product__x_aa_av_is_color
+#: model:ir.model.fields,field_description:sale_ext_fields.field_product_template__x_aa_av_is_color
+msgid "Is Color"
+msgstr "Is Kleur"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_color_group
+msgid "Kleurgroep 1"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_color_group_layer_2
+msgid "Kleurgroep 2"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_kleurwissels_price
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Kleurwissels"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Kraanbanen"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_kraanbanen_price
+msgid "Kraanbanen afplakken"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_kraanbanen_surface
+msgid "Kraanbanen surface"
+msgstr "Kraanbanen m2"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep____last_update
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep__write_uid
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep__write_date
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Layer 1 Tickness (micron)"
+msgstr "Laag 1 dikte (micron)"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_layer_1
+msgid "Layer 1 title"
+msgstr "Laag 1 titel"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Layer 2 Tickness (micron)"
+msgstr "Laag 2 dikte (micron)"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_layer_2
+msgid "Layer 2 title"
+msgstr "Laag 2 titel"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_product_product__x_aa_av_layer_title
+#: model:ir.model.fields,field_description:sale_ext_fields.field_product_template__x_aa_av_layer_title
+msgid "Layer Title"
+msgstr "Laag titel"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_layers
+msgid "Layers"
+msgstr "Lagen"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_location_id
+msgid "Location"
+msgstr "Locatie"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep__x_aa_av_name
+msgid "Name"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_net_price_total
+msgid "Net price total"
+msgstr "Netto totaalprijs"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_net_price
+msgid "Net project price per m2"
+msgstr "Netto project prijs per m2"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_project_description
+msgid "Order Description"
+msgstr "Project beschrijving"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_project_leader_phone
+msgid "Phone"
+msgstr "Telefoon"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_pre_treatment
+msgid "Pre-treatment"
+msgstr "Voorbehandeling"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_gross_price_per_m2
+msgid "Price per m2"
+msgstr "Prijs per m2"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Pricing table"
+msgstr "Prijsopbouw"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Prijs (m2)"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model,name:sale_ext_fields.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model,name:sale_ext_fields.model_product_category
+msgid "Product Category"
+msgstr "Kleurgroep 1"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_color_product_template_id
+msgid "Product Template"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model,name:sale_ext_fields.model_product_product
+msgid "Product Variant"
+msgstr "Productvariant"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Project Information"
+msgstr "Project Informatie"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_project_leader_id
+msgid "Project leader"
+msgstr "Projectleider"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_pro_manager_id
+msgid "Project manager"
+msgstr "Projectleider"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__x_aa_av_sale_order_id
+msgid "Sale order"
+msgstr "Verkooporder"
+
+#. module: sale_ext_fields
+#: model:ir.model,name:sale_ext_fields.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__x_aa_av_sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__ansova_vormgroep__x_aa_av_vormgroep__specials
+msgid "Specials"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_state_id
+msgid "State"
+msgstr "Provincie"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_street
+msgid "Street"
+msgstr "Straat"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_surface
+msgid "Surface"
+msgstr "Aantal m2's"
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Surface (m2)"
+msgstr "Oppervlakte (m2)"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_tekla_bestand_1
+msgid "Tekla file 1"
+msgstr "Tekla bestand 1"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_tekla_bestand_2
+msgid "Tekla file 2"
+msgstr "Tekla bestand 2"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_layer1_thickness
+msgid "Thickness"
+msgstr "Laagdikte"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_layer2_thickness
+msgid "Thickness layer 2"
+msgstr "Laagdikte laag 2"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_tonnage
+msgid "Tonnage"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Totaal"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_total_base_price
+msgid "Total Base Price"
+msgstr "Totale basisprijs"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_total_color_group_price
+msgid "Total color group price"
+msgstr "Totale prijs kleurgroep"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_delengroep_price_total
+msgid "Total delengroep price"
+msgstr "Totale prijs delengroep"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_kleurwissels_price_total
+msgid "Total kleurwissels price"
+msgstr "Totale kleurwissels prijs"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_kraanbanen_price_total
+msgid "Total kraanbanen price"
+msgstr "Totale kraanbanen prijs"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__x_aa_av_vormgroep_price_total
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_1_total_price
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_2_total_price
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_3_total_price
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_4_total_price
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_price_total
+msgid "Total vormgroep price"
+msgstr "Totale prijs vormgroep"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_transport
+msgid "Transport"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.actions.act_window,name:sale_ext_fields.action_ansova_vormgroep
+#: model:ir.model,name:sale_ext_fields.model_ansova_vormgroep
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__x_aa_av_vormgroep
+#: model_terms:ir.ui.view,arch_db:sale_ext_fields.view_order_form_inherit_fields_sale
+msgid "Vormgroep"
+msgstr "Vormgroepen"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_1
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__ansova_vormgroep__x_aa_av_vormgroep__1
+msgid "Vormgroep 1"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_1_surface
+msgid "Vormgroep 1 surface"
+msgstr "Vormgroep 1 oppervlakte"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_2
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__ansova_vormgroep__x_aa_av_vormgroep__2
+msgid "Vormgroep 2"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_2_surface
+msgid "Vormgroep 2 surface"
+msgstr "Vormgroep 2 oppervlakte"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_3
+#: model:ir.model.fields.selection,name:sale_ext_fields.selection__ansova_vormgroep__x_aa_av_vormgroep__3
+msgid "Vormgroep 3"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_3_surface
+msgid "Vormgroep 3 surface"
+msgstr "Vormgroep 3 oppervlakte"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_4
+msgid "Vormgroep 4"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_4_surface
+msgid "Vormgroep 4 surface"
+msgstr "Vormgroep 4 oppervlakte"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_vormgroep_ids
+msgid "Vormgroepen"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_delengroep__x_aa_av_currency_id
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__x_aa_av_currency_id
+#: model:ir.model.fields,field_description:sale_ext_fields.field_product_category__x_aa_av_currency_id
+msgid "X Aa Av Currency"
+msgstr ""
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_sale_order__x_aa_av_zip
+msgid "ZIP"
+msgstr "Postcode"
+
+#. module: sale_ext_fields
+#: model:ir.model.fields,field_description:sale_ext_fields.field_ansova_vormgroep__x_aa_av_vormgroep_surface
+msgid "m2"
+msgstr ""

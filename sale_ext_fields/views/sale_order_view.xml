@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherited form view of sale.order -->
+        <record id="view_order_form_inherit_fields_sale" model="ir.ui.view">
+            <field name="name">sale.order.form.fields.sale</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="validity_date" position="after">
+                    <field name="x_aa_av_uitvoeringsperiode"/>
+                </field>
+                <xpath expr="//page[@name='other_information']" position="inside">
+                    <group>
+                        <group name="files" string="Files">
+                            <field name="x_aa_av_tekla_bestand_1"/>
+                            <field name="x_aa_av_tekla_bestand_2"/>
+                        </group>
+                    </group>
+                </xpath>
+                <xpath expr="//page[@name='customer_signature']" position="after">
+                    <page name="calculation" string="Calculation">
+                        <group>
+                            <group name="pro_info" string="Project Information">
+                                <field name="x_aa_av_location_id"/>
+                                <field name="x_aa_av_project_leader_id"/>
+                                <field name="x_aa_av_project_leader_phone"/>
+                                <field name="x_aa_av_pre_treatment"/>
+                                <field name="x_aa_av_corrosivity"/>
+                                <field name="x_aa_av_layers"/>
+                                <field name="x_aa_av_layer_1"/>
+                                <field name="x_aa_av_layer1_thickness"
+                                       string="Layer 1 Tickness (micron)"/>
+                                <field name="x_aa_av_layer_2"
+                                       attrs="{'invisible': [('x_aa_av_layers', '=', '1')]}"/>
+                                <field name="x_aa_av_layer2_thickness" string="Layer 2 Tickness (micron)"
+                                       attrs="{'invisible': [('x_aa_av_layers', '=', '1')]}"/>
+                                <field name="x_aa_av_surface" string="Surface (m2)" force_save="1"/>
+                                <field name="x_aa_av_tonnage" force_save="1"/>
+                                <field name="x_aa_av_delengroep_id" force_save="1"/>
+                                <field name="x_aa_av_extra_per_delengroep" force_save="1"/>
+                            </group>
+                            <group name="color" string="Color">
+                                <field name="x_aa_av_color_layer_1_id"
+                                       options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True}"
+                                       domain="[('x_aa_av_is_color', '=', True)]"/>
+                                <field name="x_aa_av_color_group"/>
+                                <field name="x_aa_av_color_layer_2_id"
+                                       options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True}"
+                                       attrs="{'invisible': [('x_aa_av_layers', '=', '1')]}"
+                                       domain="[('x_aa_av_is_color', '=', True)]"/>
+                                <field name="x_aa_av_color_group_layer_2"
+                                       attrs="{'invisible': [('x_aa_av_layers', '=', '1')]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="vormgroep" string="Vormgroep">
+                                <field name="x_aa_av_vormgroep_ids" force_save="1" string=" ">
+                                    <tree editable="bottom">
+                                        <field name="x_aa_av_sequence" widget="handle"/>
+                                        <field name="x_aa_av_currency_id" invisible="1"/>
+                                        <field name="x_aa_av_sale_order_id" invisible="1"/>
+                                        <field name="x_aa_av_vormgroep"/>
+                                        <field name="x_aa_av_price" string="Prijs (m2)"/>
+                                        <field name="x_aa_av_vormgroep_surface"/>
+                                        <field name="x_aa_av_vormgroep_price_total" string="Totaal"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="kraanbanen" string="Kraanbanen">
+                                <field name="x_aa_av_kraanbanen_price" force_save="1"/>
+                                <field name="x_aa_av_kraanbanen_surface" force_save="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="kleurwissels" string="Kleurwissels">
+                                <field name="x_aa_av_kleurwissels_price" force_save="1"/>
+                                <field name="x_aa_av_kleurwissels_amount" force_save="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="base_price" string="Base Price">
+                                <field name="x_aa_av_base_price" force_save="1"/>
+                                <field name="x_aa_av_total_base_price" force_save="1"/>
+                                <field name="x_aa_av_discount"/>
+                                <field name="x_aa_av_net_discount"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="pricing" string="Pricing table">
+                                <table class="table table_custom_layout_sale"
+                                       style="width: 600px;margin-left:auto;text-align:right;">
+                                    <!-- Basisprijs -->
+                                    <tr>
+                                        <td>
+                                            <span class="o_form_label">Prijsopbouw: </span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_base_price" readonly="1" nolabel="1" force_save="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_surface" readonly="1" nolabel="1" force_save="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">m2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_total_base_price" nolabel="1" force_save="1"/>
+                                        </td>
+                                    </tr>
+                                    <!-- Kleurgroep -->
+                                    <tr>
+                                        <td>
+                                            <field name="x_aa_av_color_group" nolabel="1" force_save="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_color_group_price_m2" force_save="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_surface" readonly="1" nolabel="1" force_save="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">m2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_total_color_group_price" force_save="1" nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                    <field name="x_aa_av_vormgroep_1" invisible="1"/>
+                                    <field name="x_aa_av_vormgroep_2" invisible="1"/>
+                                    <field name="x_aa_av_vormgroep_3" invisible="1"/>
+                                    <field name="x_aa_av_vormgroep_4" invisible="1"/>
+                                    <!-- Vormgroep 1-->
+                                    <tr attrs="{'invisible': [('x_aa_av_vormgroep_1', '=', False)]}">
+                                        <td>
+                                            <span class="o_form_label">Vormgroep 1</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_1_price" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_1_surface" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">m2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_1_total_price" readonly="1" nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                    <!-- Vormgroep 2-->
+                                    <tr attrs="{'invisible': [('x_aa_av_vormgroep_2', '=', False)]}">
+                                        <td>
+                                            <span class="o_form_label">Vormgroep 2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_2_price" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_2_surface" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">m2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_2_total_price" readonly="1" nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('x_aa_av_vormgroep_3', '=', False)]}">
+                                        <td>
+                                            <span class="o_form_label">Vormgroep 3</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_3_price" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_3_surface" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">m2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_3_total_price" readonly="1" nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('x_aa_av_vormgroep_4', '=', False)]}">
+                                        <td>
+                                            <span class="o_form_label">Specials</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_4_price" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_4_surface" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">m2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_vormgroep_4_total_price" readonly="1" nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- Delengroep -->
+                                        <td>
+                                            <field name="x_aa_av_delengroep_id" force_save="1" readonly="1"
+                                                   nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_extra_per_delengroep" force_save="1" readonly="1"
+                                                   nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_surface" force_save="1" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">m2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_delengroep_price_total" force_save="1" nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- Kraanbanen -->
+                                        <td>
+                                            <span class="o_form_label">Kraanbanen afplakken</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_kraanbanen_price" force_save="1" readonly="1"
+                                                   nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_kraanbanen_surface" force_save="1" readonly="1"
+                                                   nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">m2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_kraanbanen_price_total" force_save="1" nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- Kleurwissels -->
+                                        <td>
+                                            <span class="o_form_label">Kleurwissels</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_kleurwissels_price" force_save="1" readonly="1"
+                                                   nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_kleurwissels_amount" force_save="1" readonly="1"
+                                                   nolabel="1"/>
+                                        </td>
+                                        <td/>
+                                        <td>
+                                            <field name="x_aa_av_kleurwissels_price_total" force_save="1" nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- Subtotal -->
+                                        <td>
+                                            <span class="o_form_label">Price per m2:</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_gross_price_per_m2" force_save="1" readonly="1"
+                                                   nolabel="1"/></td>
+                                        <td>
+                                            <field name="x_aa_av_surface" readonly="1" nolabel="1" force_save="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">m2</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_subtotal_total" force_save="1" nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('x_aa_av_discount', '=', 0.0)]}">
+                                        <!-- Discount -->
+                                        <td>
+                                            <span class="o_form_label">Calculated discount:</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_discount" force_save="1" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">per m2</span>
+                                        </td>
+                                        <td/>
+                                        <td/>
+                                    </tr>
+                                    <tr attrs="{'invisible': [('x_aa_av_net_discount', '=', 0.0)]}">
+                                        <!-- Net Discount -->
+                                        <td>
+                                            <span class="o_form_label">Net discount:</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_net_discount" force_save="1" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                    </tr>
+                                    <tr attrs="{'invisible': ['&amp;', ('x_aa_av_discount', '=', 0.0), ('x_aa_av_net_discount', '=', 0.0)]}">
+                                        <!-- Net Project Price -->
+                                        <td>
+                                            <span class="o_form_label">Net project price:</span>
+                                        </td>
+                                        <td>
+                                            <field name="x_aa_av_net_price" force_save="1" readonly="1" nolabel="1"/>
+                                        </td>
+                                        <td>
+                                            <span class="o_form_label">per m2</span>
+                                        </td>
+                                        <td/>
+                                        <td>
+                                            <field name="x_aa_av_net_price_total" force_save="1" readonly="1"
+                                                   nolabel="1"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

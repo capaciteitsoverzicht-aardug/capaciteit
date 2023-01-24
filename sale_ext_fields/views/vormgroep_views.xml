@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record id="view_ansova_vormgroep_tree" model="ir.ui.view">
+            <field name="name">view.ansova.vormgroep.tree</field>
+            <field name="model">ansova.vormgroep</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="x_aa_av_currency_id" invisible="1"/>
+                    <field name="x_aa_av_sale_order_id" invisible="1"/>
+                    <field name="x_aa_av_vormgroep"/>
+                    <field name="x_aa_av_price"/>
+                    <field name="x_aa_av_vormgroep_surface"/>
+                    <field name="x_aa_av_vormgroep_price_total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_ansova_vormgroep_form" model="ir.ui.view">
+            <field name="name">view.ansova.vormgroep.form</field>
+            <field name="model">ansova.vormgroep</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="x_aa_av_currency_id" invisible="1"/>
+                            <field name="x_aa_av_sale_order_id" invisible="1"/>
+                            <field name="x_aa_av_vormgroep"/>
+                            <field name="x_aa_av_price"/>
+                            <field name="x_aa_av_vormgroep_surface"/>
+                            <field name="x_aa_av_vormgroep_price_total"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_ansova_vormgroep" model="ir.actions.act_window">
+            <field name="name">Vormgroep</field>
+            <field name="res_model">ansova.vormgroep</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id"/>
+            <field name="domain"></field>
+        </record>
+
+    </data>
+</odoo>
