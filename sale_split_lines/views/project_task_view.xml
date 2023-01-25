@@ -39,6 +39,7 @@
                                 <field name="x_aa_av_color_product_id"/>
                             </group>
                             <group name="transport" string="Transport">
+                                <field name="x_aa_av_poader"/>
                                 <field name="x_aa_av_transport"/>
                                 <field name="x_aa_av_transport_stage"/>
                                 <field name="x_aa_av_components_transport"/>

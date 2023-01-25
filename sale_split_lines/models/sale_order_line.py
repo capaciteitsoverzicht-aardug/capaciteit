@@ -38,6 +38,7 @@ class SaleOrderLine(models.Model):
                     'x_aa_av_conservering': self.order_id.x_aa_av_layer_1,
                     'x_aa_av_surface': self.x_aa_av_surface,
                     'x_aa_av_color_product_id': self.order_id.x_aa_av_color_layer_1_id.id,
-                    'x_aa_av_transport': self.order_id.x_aa_av_transport
+                    'x_aa_av_transport': self.order_id.x_aa_av_transport,
+                    'x_aa_av_poader': self.order_id.x_aa_av_poader
                 })
         return res

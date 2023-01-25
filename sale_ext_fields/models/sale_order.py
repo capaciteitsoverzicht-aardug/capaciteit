@@ -109,7 +109,12 @@ class SaleOrder(models.Model):
 
     # CRM
     x_aa_av_transport = fields.Selection([('client', 'Client'),
-                                          ('ansova', 'Ansova')], string='Transport', tracking=True)
+                                          ('ansova', 'Ansova'),
+                                          ('mix', 'Mix Klant Ansova'),
+                                          ('other', 'Ansova niet geregeld')], string='Transport', tracking=True)
+    x_aa_av_poader = fields.Selection([('order', 'Poeder besteld'),
+                                          ('inside', 'Poeder binnen'),
+                                          ('other','Voorraad poeder')], string='Poeder', tracking=True)
     x_aa_av_location_id = fields.Many2one('ansova.location', string='Location', tracking=True)
     x_aa_av_project_leader_id = fields.Many2one(related='x_aa_av_location_id.x_aa_av_project_leader_id')
     x_aa_av_project_leader_phone = fields.Char(related='x_aa_av_location_id.x_aa_av_project_leader_phone')

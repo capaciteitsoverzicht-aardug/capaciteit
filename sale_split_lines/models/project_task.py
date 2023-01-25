@@ -31,7 +31,12 @@ class Task(models.Model):
     x_aa_av_delivery_date = fields.Datetime(string='Delivery date')
     x_aa_av_pickup_date = fields.Datetime(string='Pickup date')
     x_aa_av_transport = fields.Selection([('client', 'Client'),
-                                          ('ansova', 'Ansova')], string='Transport') # filled automatically
+                                          ('ansova', 'Ansova'),
+                                          ('mix', 'Mix Klant Ansova'),
+                                          ('other', 'Ansova niet geregeld')], string='Transport') # filled automatically
+    x_aa_av_poader = fields.Selection([('order', 'Poeder besteld'),
+                                          ('inside', 'Poeder binnen'),
+                                          ('other','Voorraad poeder')], string='Poeder', tracking=True)
 
     def _compute_so_stage_color(self):
         '''Set Blue color code for gantt view when sale order state is

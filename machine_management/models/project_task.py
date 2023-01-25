@@ -36,12 +36,28 @@ class MachineProjectTask(models.Model):
     aa_capacity_date = fields.Date(related='aa_capacity_machine_id.aa_date', store=True)
     aa_kanban_color = fields.Char(compute='_compute_color')
     aa_related_remain_capacity = fields.Float(related='aa_capacity_machine_id.aa_remain_capacity')
-    aa_task_count = fields.Integer(related='sale_order_id.tasks_count')
     x_aa_av_project_description = fields.Char(related='sale_order_id.x_aa_av_project_description')
     aa_bug = fields.Boolean(string='Is Bug')
     aa_lock = fields.Boolean(string='Is Lock')
     is_production_done = fields.Boolean(string='Is Production Done')
-    # aa_default_code = fields.Char(related='sale_line_id.product_id.default_code')
+    # sale kanban fields
+    aa_task_count = fields.Integer(related='sale_order_id.tasks_count')
+    x_aa_av_upload_steel = fields.Selection([('orange', 'Vracht gepland'),
+        ('green', 'Vracht binnen'), ('red', 'Vracht over bring tijd')],
+        string='Brengen staal')
+    x_aa_av_hang_up = fields.Selection([('orange', 'Vandaag ophangen'),
+        ('green', 'Opgehangen'), ('red', 'Niet opgehangen op tijd')],
+        string='Ophangen')
+    x_aa_av_take_off = fields.Selection([('orange', 'In productie'),
+        ('green', 'Afgehaald')], string='Afhalen')
+    x_aa_av_truck = fields.Selection([('orange', 'Transport gepland'),
+        ('green', 'Klaar voor transport')], string='Transfer')
+    x_aa_av_delivery = fields.Selection([('orange', 'Vandaag ophalen'),
+        ('green', 'Opgehaald'), ('red', 'Niet op tijd weg')], string='Uitgeleverd')
+    x_aa_av_lock = fields.Selection([('green', 'Unlock'), ('red', 'Lock')],
+        string='Lock')
+    x_aa_av_bug = fields.Selection([('orange', 'Gemeld niet kritiek'),
+        ('green', 'Opgelost'), ('red', 'Gemeld kritiek')], string='Probleem')
 
     @api.model
     def aa_action_normal_machines(self, recordDate):
