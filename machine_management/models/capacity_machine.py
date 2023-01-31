@@ -52,6 +52,12 @@ class MachineCapacity(models.Model):
     aa_locked = fields.Boolean(compute='_compute_progress', store=True)
     aa_zero = fields.Boolean(related="aa_resource_id.aa_zero", store=True)
 
+    @api.model
+    def aa_checkOldCapacity(self):
+        '''To Find Old Cpacity'''
+        aa_cap = self.search([('aa_date', '<', fields.date.today())])
+        return aa_cap.ids
+
     # Need to check
     # def update_parent_capacities(self, record):
     #     totalCapacity = 0.0

@@ -10,6 +10,12 @@
             <a style="margin-left:20px;" class="o_column_go_zero" t-on-click="() => this.o_column_go_zero(group)"><i class="fa fa-arrow-left" role="img" aria-label="normal_machine" title="Go to Zero Machine"/></a>
         </xpath>
     </t>
+
+    <t t-inherit="web.KanbanRecord" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div" position="attributes">
+            <attribute name="t-on-dblclick">openGlobalClick</attribute>
+        </xpath>
+    </t>
     <!-- 
     <t name="Kanban column Progress" t-extend="KanbanView.ColumnProgressBar">
         <t t-jquery="div.o_kanban_counter_progress" t-operation="before">

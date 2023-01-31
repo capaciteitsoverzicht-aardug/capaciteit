@@ -121,8 +121,37 @@
                                             </div>
                                         </div>
 
-                                        <div style="font-size: 11px; background-color: whitesmoke; padding: 4px; margin: 0;">
-                                            <div class="row" style="height:30px">
+                                        <div class="row" style="font-size: 12px; background-color: whitesmoke; padding: 8px 4px 4px 4px;">
+                                            <div class="col-sm-2">
+                                                <t t-if="record.partner_id and record.partner_id.raw_value">
+                                                    <img t-att-src="kanban_image('res.partner', 'image_1920', record.partner_id.raw_value)" t-att-title="record.partner_id.value" t-att-alt="record.partner_id.value" class="oe_kanban_avatar o_image_24_cover" style="width:50px; height:50px"/>
+                                                </t>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="text-left">
+                                                    <t t-if="record.partner_id">
+                                                        <t t-esc="record.partner_id.value"/><br/>
+                                                    </t>
+                                                    <t t-if="record.x_aa_av_order_name">
+                                                        <t t-esc="record.x_aa_av_order_name.value"/><br/>
+                                                    </t>
+                                                    <t t-if="record.date_deadline">
+                                                        <span class="fa fa-calendar fa-lg" style="color:green"> <field name="date_deadline" widget="date"/></span>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 row" style="margin-left: initial;">
+                                                <div class="btn col-sm-12" style="background-color:white; color: black; text-align: center; border: 1px solid white; border-radius: 4px; font-size: 12px; margin-bottom: 4px;">
+                                                    <field name="x_aa_av_surface"/>
+                                                </div>
+                                                <div class="btn col-sm-12" style="background-color:grey; color: white; text-align: center; border: 1px solid grey; border-radius: 4px; font-size: 12px;">
+                                                    <t t-if="record.x_aa_av_color_product_id">
+                                                        <t t-esc="record.x_aa_av_color_product_id.value.split(' ')[1]"/>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <!-- <div class="row" style="height:30px">
                                                 <div style="margin-left:3%; max-width: 45%;">
                                                     <div class="btn vos_order_group planning_kanban_button" style="background-color:yellow; color: black; text-align: center; border: 1px solid gray; border-radius: 3px; font-size: 15px; max-height:25px">
                                                         <field name="x_aa_av_surface"/>
@@ -158,75 +187,81 @@
                                                         <field name="x_aa_av_color_product_id"/>
                                                     </div>
                                                 </div>
+                                            </div> -->
+                                        <div class="row" style="font-size: 12px; background-color: whitesmoke; padding: 0px 4px 4px 4px;">
+                                            <div class="col-sm-8" style="font-size:14px; text-align:center">
+                                                <t t-set="transport" t-value="'color:grey'"/>
+                                                <t t-if="record.x_aa_av_transport.raw_value == 'client'">
+                                                    <t t-set="transport" t-value="'color:orange'"/>
+                                                </t>
+                                                <t t-if="record.x_aa_av_transport.raw_value == 'ansova'">
+                                                    <t t-set="transport" t-value="'color:green'"/>
+                                                </t>
+                                                <t t-if="record.x_aa_av_transport.raw_value == 'mix'">
+                                                    <t t-set="transport" t-value="'color:purple'"/>
+                                                </t>
+                                                <t t-if="record.x_aa_av_transport.raw_value == 'other'">
+                                                    <t t-set="transport" t-value="'color:red'"/>
+                                                </t>
+                                                <t t-set="poader" t-value="'color:grey'"/>
+                                                <t t-if="record.x_aa_av_poader.raw_value == 'order'">
+                                                    <t t-set="poader" t-value="'color:orange'"/>
+                                                </t>
+                                                <t t-if="record.x_aa_av_poader.raw_value == 'inside'">
+                                                    <t t-set="poader" t-value="'color:green'"/>
+                                                </t>
+                                                <t t-if="record.x_aa_av_poader.raw_value == 'other'">
+                                                    <t t-set="poader" t-value="'color:purple'"/>
+                                                </t>
+                                                <t t-set="upload_steel" t-value="'color:grey'"/>
+                                                <t t-if="record.x_aa_av_upload_steel.raw_value">
+                                                    <t t-set="upload_steel" t-value="'color: '+record.x_aa_av_upload_steel.raw_value"/>
+                                                </t>
+                                                <t t-set="hang_up" t-value="'color:grey'"/>
+                                                <t t-if="record.x_aa_av_hang_up.raw_value">
+                                                    <t t-set="hang_up" t-value="'color: '+record.x_aa_av_hang_up.raw_value"/>
+                                                </t>
+                                                <t t-set="take_off" t-value="'color:grey'"/>
+                                                <t t-if="record.x_aa_av_take_off.raw_value">
+                                                    <t t-set="take_off" t-value="'color: '+record.x_aa_av_take_off.raw_value"/>
+                                                </t>
+                                                <t t-set="truck" t-value="'color:grey'"/>
+                                                <t t-if="record.x_aa_av_truck.raw_value">
+                                                    <t t-set="truck" t-value="'color: '+record.x_aa_av_truck.raw_value"/>
+                                                </t>
+                                                <t t-set="delivery" t-value="'color:grey'"/>
+                                                <t t-if="record.x_aa_av_delivery.raw_value">
+                                                    <t t-set="delivery" t-value="'color: '+record.x_aa_av_delivery.raw_value"/>
+                                                </t>
+                                                <t t-set="bug" t-value="'color:grey'"/>
+                                                <t t-if="record.x_aa_av_bug.raw_value">
+                                                    <t t-set="bug" t-value="'color: '+record.x_aa_av_bug.raw_value"/>
+                                                </t>
+                                                <t t-set="lock" t-value="'color:grey'"/>
+                                                <t t-if="record.x_aa_av_lock.raw_value">
+                                                    <t t-set="lock" t-value="'color: '+record.x_aa_av_lock.raw_value"/>
+                                                </t>
+                                                <li class="fa fa-level-up fa-lg margin" t-att-style="transport"
+                                                t-att-data-id="record.id.value" title="Transport"></li>
+                                                <li class="fa fa-cart-plus fa-lg margin" t-att-style="poader" t-att-data-id="record.id.value" title="Poader"></li>
+                                                <li class="fa fa-upload fa-lg margin" t-att-style="upload_steel" t-att-data-id="record.id.value" title="Steel"></li>
+                                                <li class="fa fa-picture-o fa-lg margin" t-att-style="hang_up" t-att-data-id="record.id.value" title="Pick"></li>
+                                                <li class="fa fa-pencil-square fa-lg margin" t-att-style="take_off" t-att-data-id="record.id.value" title="Take"></li>
+                                                <li class="fa fa-truck fa-lg margin" t-att-style="truck" t-att-data-id="record.id.value" title="Truck"></li>
+                                                <li class="fa fa-download fa-lg margin" t-att-style="delivery" title="Delivery"></li>
+                                                <li class="fa fa-lock fa-lg margin" t-att-style="lock" title="Lock"></li>
+                                                <li class="fa fa-bug fa-lg margin" t-att-style="bug" title="Bug"></li>
                                             </div>
-                                            <div class="row" style="height:30px">
-                                                <div style="margin-left:3%; max-width: 72%; font-size:15px">
-                                                    <t t-set="transport" t-value="'color:grey'"/>
-                                                    <t t-if="record.x_aa_av_transport.raw_value == 'client'">
-                                                        <t t-set="transport" t-value="'color:orange'"/>
-                                                    </t>
-                                                    <t t-if="record.x_aa_av_transport.raw_value == 'ansova'">
-                                                        <t t-set="transport" t-value="'color:green'"/>
-                                                    </t>
-                                                    <t t-if="record.x_aa_av_transport.raw_value == 'mix'">
-                                                        <t t-set="transport" t-value="'color:purple'"/>
-                                                    </t>
-                                                    <t t-if="record.x_aa_av_transport.raw_value == 'other'">
-                                                        <t t-set="transport" t-value="'color:red'"/>
-                                                    </t>
-                                                    <t t-set="poader" t-value="'color:grey'"/>
-                                                    <t t-if="record.x_aa_av_poader.raw_value == 'order'">
-                                                        <t t-set="poader" t-value="'color:orange'"/>
-                                                    </t>
-                                                    <t t-if="record.x_aa_av_poader.raw_value == 'inside'">
-                                                        <t t-set="poader" t-value="'color:green'"/>
-                                                    </t>
-                                                    <t t-if="record.x_aa_av_poader.raw_value == 'other'">
-                                                        <t t-set="poader" t-value="'color:purple'"/>
-                                                    </t>
-                                                    <t t-set="upload_steel" t-value="'color:grey'"/>
-                                                    <t t-if="record.x_aa_av_upload_steel.raw_value">
-                                                        <t t-set="upload_steel" t-value="'color: '+record.x_aa_av_upload_steel.raw_value"/>
-                                                    </t>
-                                                    <t t-set="hang_up" t-value="'color:grey'"/>
-                                                    <t t-if="record.x_aa_av_hang_up.raw_value">
-                                                        <t t-set="hang_up" t-value="'color: '+record.x_aa_av_hang_up.raw_value"/>
-                                                    </t>
-                                                    <t t-set="take_off" t-value="'color:grey'"/>
-                                                    <t t-if="record.x_aa_av_take_off.raw_value">
-                                                        <t t-set="take_off" t-value="'color: '+record.x_aa_av_take_off.raw_value"/>
-                                                    </t>
-                                                    <t t-set="truck" t-value="'color:grey'"/>
-                                                    <t t-if="record.x_aa_av_truck.raw_value">
-                                                        <t t-set="truck" t-value="'color: '+record.x_aa_av_truck.raw_value"/>
-                                                    </t>
-                                                    <t t-set="delivery" t-value="'color:grey'"/>
-                                                    <t t-if="record.x_aa_av_delivery.raw_value">
-                                                        <t t-set="delivery" t-value="'color: '+record.x_aa_av_delivery.raw_value"/>
-                                                    </t>
-                                                    <t t-set="bug" t-value="'color:grey'"/>
-                                                    <t t-if="record.x_aa_av_bug.raw_value">
-                                                        <t t-set="bug" t-value="'color: '+record.x_aa_av_bug.raw_value"/>
-                                                    </t>
-                                                    <t t-set="lock" t-value="'color:grey'"/>
-                                                    <t t-if="record.x_aa_av_lock.raw_value">
-                                                        <t t-set="lock" t-value="'color: '+record.x_aa_av_lock.raw_value"/>
-                                                    </t>
-                                                    <li class="fa fa-level-up fa-lg margin" t-att-style="transport"
-                                                    t-att-data-id="record.id.value"></li>
-                                                    <li class="fa fa-cart-plus fa-lg margin" t-att-style="poader" t-att-data-id="record.id.value"></li>
-                                                    <li class="fa fa-upload fa-lg margin" t-att-style="upload_steel" t-att-data-id="record.id.value"></li>
-                                                    <li class="fa fa-picture-o fa-lg margin" t-att-style="hang_up" t-att-data-id="record.id.value"></li>
-                                                    <li class="fa fa-pencil-square fa-lg margin" t-att-style="take_off" t-att-data-id="record.id.value"></li>
-                                                    <li class="fa fa-truck fa-lg margin" t-att-style="truck" t-att-data-id="record.id.value"></li>
-                                                    <li class="fa fa-download fa-lg margin" t-att-style="delivery"></li>
-                                                    <li class="fa fa-lock fa-lg margin" t-att-style="lock"></li>
-                                                    <li class="fa fa-bug fa-lg margin" t-att-style="bug"></li>
+                                            <div class="col-sm-4 row">
+                                                <div class="col-sm-6">
+                                                    <div class="btn" style="background-color:black; color: white; text-align: center; border: 2px solid white; border-radius: 6px; font-size: 12px; width:36px">
+                                                        <t t-esc="record.aa_task_count.value"/>
+                                                    </div>
                                                 </div>
-                                                <div style="max-width: 20%; margin-top: auto; margin-bottom: auto;">
-                                                   <div style=" height: 30px; width: 40px; background-color:black; color: white; text-align: center; font-size: 15px;">
-                                                      <t t-esc="record.aa_task_count.value"/><br/>
-                                                   </div>
+                                                <div class="col-sm-6">
+                                                    <div class="btn" style="background-color:black; color: white; text-align: center; border: 2px solid white; border-radius: 6px; font-size: 12px; width:36px">
+                                                        <field name="x_aa_av_components_transport"/>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -234,67 +269,74 @@
                                         <div>
                                             <table>
                                                 <tr>
-                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
-                                                    <td class="text-left" style="min-width: 120px;">
-                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
-                                                        <field name="x_aa_av_surface"/>
-                                                        <!-- </t>&amp;nbsp; -->
+                                                    <td style="width:70%">
+                                                        <b>Order Description</b>
                                                     </td>
-                                                    <!-- <td class="text-left" style="min-width: 40px;">WVBR</td> -->
-                                                    <td class="text-left" colspan="5" style="min-width: 120px;">
-                                                        <field name="x_aa_av_components_transport"/>
-                                                        <!-- <t t-esc="record.data.vos_project_leader and record.data.vos_project_leader.data.display_name or ''"/> -->
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
-                                                    <td class="text-left" style="min-width: 120px;">
-                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
-                                                        <field name="x_aa_av_order_name"/>
-                                                        <!-- </t>&amp;nbsp; -->
-                                                    </td>
-                                                    <!-- <td class="text-left" style="min-width: 40px;">WVBR</td> -->
-                                                    <td class="text-left" colspan="5" style="min-width: 120px;">
+                                                    <td>
                                                         <field name="x_aa_av_project_description"/>
-                                                        <!-- <t t-esc="record.data.vos_project_leader and record.data.vos_project_leader.data.display_name or ''"/> -->
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
-                                                    <td class="text-left" style="min-width: 120px;">
-                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
+                                                    <td style="width:70%">
+                                                        <b>Surface</b>
+                                                    </td>
+                                                    <td>
+                                                        <field name="x_aa_av_surface"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="width:70%">
+                                                        <b>Tonnage</b>
+                                                    </td>
+                                                    <td>
                                                         <field name="x_aa_av_tonnage"/>
-                                                        <!-- </t>&amp;nbsp; -->
-                                                    </td>
-                                                    <!-- <td class="text-left" style="min-width: 40px;">WVBR</td> -->
-                                                    <td class="text-left" colspan="5" style="min-width: 120px;">
-                                                        <field name="x_aa_av_delivery_date"/>
-                                                        <!-- <t t-esc="record.data.vos_project_leader and record.data.vos_project_leader.data.display_name or ''"/> -->
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
-                                                    <td class="text-left" style="min-width: 120px;">
-                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
-                                                        <field name="x_aa_av_pickup_date"/>
-                                                        <!-- </t>&amp;nbsp; -->
+                                                    <td style="width:70%">
+                                                        <b>Color</b>
                                                     </td>
-                                                    <!-- <td class="text-left" style="min-width: 40px;">WVBR</td> -->
-                                                    <td class="text-left" colspan="5" style="min-width: 120px;">
+                                                    <td>
+                                                        <field name="x_aa_av_color_product_id"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="width:70%">
+                                                        <b>Total Deliveries</b>
+                                                    </td>
+                                                    <td>
+                                                        <field name="x_aa_av_components_transport"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="width:70%">
+                                                        <b>Transport Stage</b>
+                                                    </td>
+                                                    <td>
                                                         <field name="x_aa_av_transport_stage"/>
-                                                        <!-- <t t-esc="record.data.vos_project_leader and record.data.vos_project_leader.data.display_name or ''"/> -->
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <!-- <td class="text-left" style="min-width: 40px;">VERK</td> -->
-                                                    <td class="text-left" style="min-width: 120px;">
-                                                        <!-- <t t-if="record.x_aa_av_surface"> -->
-                                                        <field name="x_aa_av_conservering"/>
-                                                        <!-- </t>&amp;nbsp; -->
+                                                    <td style="width:70%">
+                                                        <b>Delivery Date</b>
+                                                    </td>
+                                                    <td>
+                                                        <field name="x_aa_av_delivery_date"/>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="width:70%">
+                                                        <b>Pickup Date</b>
+                                                    </td>
+                                                    <td>
+                                                        <field name="x_aa_av_pickup_date"/>
                                                     </td>
                                                 </tr>
                                             </table>
