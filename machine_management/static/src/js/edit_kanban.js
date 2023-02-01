@@ -96,11 +96,6 @@ export class MachineKanbanRenderer extends KanbanRenderer {
         window.$(body).find('.o_cp_switch_buttons button.active').trigger('click');
     }
 
-    // sortRecordDrop(dataRecordId, dataGroupId, { element, parent, previous }) {
-    //     var res = super.sortRecordDrop(dataRecordId, dataGroupId, { element, parent, previous });
-    //     return res
-    // }
-
     getGroupsOrRecords() {
         var res = super.getGroupsOrRecords();
         if (res && res[0] && res[0].group && res[0].group.resModel == 'resource.resource'){
@@ -109,46 +104,33 @@ export class MachineKanbanRenderer extends KanbanRenderer {
         return res
     }
 
-    // getGroupClasses(group) {
-    //     var res = super.getGroupClasses(group);
-    //     console.log("res>>>>>>>>>>>>>>>>>>",res)
-    //     console.log("group>>>>>>>>>>>>>>>>>>",group)
-    //     console.log("this>>>>>>>>>>>>>>>>>>>>>>>",this)
-    //     if (group.records[0] && group.records[0].resModel === "project.task" && group.resId) {
-    //         const action = group.model.orm.call('aa.capacity.machine', "aa_checkOldCapacity", [], {
-    //             recordDate : group.displayName,
-    //             modelId : group.resId
-    //         });
-    //         console.log("action>>>>>>>>>>>>>>>>>>",action)
-    //     }
-    //         // if action
-    //     //     console.log("res>>>>>>>>>>>>>>>>>>>>>>>",action)
-    //     //     var aa_templateTag = document.getElementsByClassName('oe_kanban_content');
-    //     //     console.log("aa_templateTag>>>>>>>>>>>>>>>>>>>>>>>",aa_templateTag)
-    //     //     for (var aa_t in aa_templateTag){
-    //     //         if (aa_templateTag[aa_t].dataset){
-    //     //             for (var cap in action){
-    //     //                 if (aa_templateTag[aa_t].dataset.id && aa_templateTag[aa_t].dataset.id.replace(/,/g, '').trim() == action[cap]){
-    //     //                     if (aa_templateTag[aa_t].style.opacity == '1'){
-    //     //                         aa_templateTag[aa_t].style.opacity = 0.3;
-    //     //                     }
-    //     //                     else{
-    //     //                          aa_templateTag[aa_t].style.opacity = 1;
-    //     //                     }
-    //     //                 }
-    //     //             }
-    //     //         }
-    //     //     }
-    //     //     // group.model.action.doAction(action);
-    //     // }
-    //     // aa_self._rpc({
-    //     //     model: 'aa.capacity.machine',
-    //     //     method: 'aa_checkOldCapacity',
-    //     //     args: [[]],
-    //     // }).then(function (aa_cap){
-    //     // });
-    //     return res
-    // }
+    getGroupClasses(group) {
+        if (group.count > 1){
+            group.isFolded = false
+        }
+        const classes = [];
+        if (this.canResequenceGroups && group.value) {
+            classes.push("o_group_draggable");
+        }
+        if (!group.count) {
+            classes.push("o_kanban_no_records");
+        }
+        if (!this.env.isSmall && group.isFolded) {
+            classes.push("o_column_folded");
+        }
+        if (!group.isFolded && !group.hasActiveProgressValue) {
+            classes.push("bg-100");
+            this.loadMore(group)
+        }
+        if (group.progressBars.length) {
+            classes.push("o_kanban_has_progressbar");
+            if (!group.isFolded && group.hasActiveProgressValue) {
+                const progressBar = group.activeProgressBar;
+                classes.push("o_kanban_group_show", `o_kanban_group_show_${progressBar.color}`);
+            }
+        }
+        return classes.join(" ");
+    }
 }
 
 MachineKanbanRenderer.components = {

@@ -135,7 +135,7 @@
                                                     <t t-if="record.x_aa_av_order_name">
                                                         <t t-esc="record.x_aa_av_order_name.value"/><br/>
                                                     </t>
-                                                    <t t-if="record.date_deadline">
+                                                    <t t-if="record.date_deadline.value">
                                                         <span class="fa fa-calendar fa-lg" style="color:green"> <field name="date_deadline" widget="date"/></span>
                                                     </t>
                                                 </div>
@@ -151,43 +151,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                            <!-- <div class="row" style="height:30px">
-                                                <div style="margin-left:3%; max-width: 45%;">
-                                                    <div class="btn vos_order_group planning_kanban_button" style="background-color:yellow; color: black; text-align: center; border: 1px solid gray; border-radius: 3px; font-size: 15px; max-height:25px">
-                                                        <field name="x_aa_av_surface"/>
-                                                    </div>
-                                                </div>
-                                                <div style="margin-left: 5%; max-width: 20%;">
-                                                    <t t-if="record.partner_id and record.partner_id.raw_value">
-                                                        <img t-att-src="kanban_image('res.partner', 'avatar_128', record.partner_id.raw_value)" t-att-title="record.partner_id.value" t-att-alt="record.partner_id.value" class="oe_kanban_avatar o_image_24_cover"/>
-                                                    </t>
-                                                </div>
-                                                <div style="max-width: 25%;">
-                                                    <div style=" padding-top: 6px; height: 30px; width: 50px; background-color:#2C8397; color: white; text-align: center; border-radius: 4px; font-size: 15px;">
-                                                        <t t-if="record.x_aa_av_color_product_id">
-                                                            <t t-esc="record.x_aa_av_color_product_id.value.split(' ')[1]"/>
-                                                        </t>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="margin-left:1%;">
-                                                <div class="text-left" style="text-transform: uppercase; max-width: 70%;">
-                                                    <t t-if="record.x_aa_av_color_product_id">
-                                                        <t t-esc="record.x_aa_av_color_product_id.value"/><br/>
-                                                    </t>
-                                                    <t t-if="record.x_aa_av_order_name">
-                                                        <t t-esc="record.x_aa_av_order_name.value"/><br/>
-                                                    </t>
-                                                    <t t-if="record.partner_id">
-                                                        <t t-esc="record.partner_id.value"/><br/>
-                                                    </t>
-                                                </div>
-                                                <div style="margin-left: 3%; max-width: 25%; margin-top: auto; margin-bottom: auto;">
-                                                    <div style=" height: 30px; width: 40px; background-color:black; color: white; text-align: center; font-size: 15px;">
-                                                        <field name="x_aa_av_color_product_id"/>
-                                                    </div>
-                                                </div>
-                                            </div> -->
                                         <div class="row" style="font-size: 12px; background-color: whitesmoke; padding: 0px 4px 4px 4px;">
                                             <div class="col-sm-8" style="font-size:14px; text-align:center">
                                                 <t t-set="transport" t-value="'color:grey'"/>
@@ -267,7 +230,7 @@
                                         </div>
                                         <div style="height: 20px;"></div>
                                         <div>
-                                            <table>
+                                            <table style="width:225px">
                                                 <tr>
                                                     <td style="width:70%">
                                                         <b>Order Description</b>

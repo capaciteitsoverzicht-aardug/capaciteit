@@ -7,7 +7,6 @@
 ##############################################################################
 
 import datetime
-# from datetime import date, datetime
 from odoo import api, exceptions, fields, models, _
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DFORMAT
 
@@ -58,20 +57,6 @@ class MachineCapacity(models.Model):
         aa_cap = self.search([('aa_date', '<', fields.date.today())])
         return aa_cap.ids
 
-    # Need to check
-    # def update_parent_capacities(self, record):
-    #     totalCapacity = 0.0
-    #     childCaps = self.search([('aa_parent_capacity', '=', record.id)])
-    #     if childCaps:
-    #         for childCap in childCaps:
-    #             totalCapacity += childCap.aa_capacity
-    #         record.aa_capacity = totalCapacity
-    #     else:
-    #         minDate = datetime.datetime.combine(record.aa_date, datetime.datetime.min.time())
-    #         maxDate = datetime.datetime.combine(record.aa_date, datetime.datetime.max.time())
-    #         record.aa_capacity = (record.aa_resource_id and
-    #             record.aa_resource_id.calendar_id.get_work_hours_count(minDate, maxDate))
-
     def update_zero_capacities(self):
         child_cap = self.search([('aa_parent_capacity', '=', self.id)])
         if child_cap:
@@ -97,20 +82,6 @@ class MachineCapacity(models.Model):
             # else:
             #     self.update_parent_capacities(record)
 
-    # Need to check
-    # def update_remain_parent_capacities(self, record):
-    #     totalRemCapacity = 0.0
-    #     calRecRemCap = 0.0
-    #     childCaps = self.search([('aa_parent_capacity', '=', record.id)])
-    #     if childCaps:
-    #         for childCap in childCaps:
-    #             if childCap.aa_remain_capacity == 0.0:
-    #                 calRecRemCap = childCap.aa_capacity - childCap.aa_prod_time_total_est
-    #             totalRemCapacity += childCap.aa_remain_capacity
-    #         record.aa_remain_capacity = (totalRemCapacity + calRecRemCap) - record.aa_prod_time_total_est
-    #     else:
-    #         record.aa_remain_capacity = record.aa_capacity - record.aa_prod_time_total_est
-
     def update_zero_remian_capacities(self):
         child_cap = self.search([('aa_parent_capacity', '=', self.id)])
         if child_cap:
@@ -128,7 +99,6 @@ class MachineCapacity(models.Model):
             else:
                 record.update_zero_remian_capacities()
 
-    # Done
     @api.depends('aa_date')
     def check_plan_only(self):
         for record in self:
@@ -137,7 +107,6 @@ class MachineCapacity(models.Model):
             else:
                 record.aa_plan_only = False
 
-    # Done
     @api.depends('aa_capacity', 'aa_remain_capacity', 'aa_prod_time_total_est')
     def _compute_progress(self):
         for rec in self.sorted(key='id', reverse=True):
@@ -179,16 +148,13 @@ class MachineCapacity(models.Model):
                 key=lambda x: x['name'], reverse=True)
             # self.aa_machine_header = str(aa_date_header)
             self.aa_machine_info = str(aa_sorted_all_machine_detail)
-        # return res
 
-    # Done
     @api.depends('aa_task_ids', 'aa_task_ids.aa_production_time_count')
     def aa_compute_total_time(self):
         for record in self:
             record.aa_prod_time_total_est = round(
                 sum(record.aa_task_ids.mapped('aa_production_time_count')), 2)
 
-    # Done
     def aa_join_name_date(self, aa_name, date, aa_plan_only):
         aa_nameContent = aa_name[:2] + aa_name[-1:]
         aa_weekDay = ['MA', 'DI', 'WO', 'DO', 'VR', 'ZA', 'ZO']
@@ -197,7 +163,6 @@ class MachineCapacity(models.Model):
         else:
             return aa_nameContent.upper() + ' ' + date.strftime('%d-%m/%W') + aa_weekDay[date.weekday()]
 
-    # Done
     @api.model
     def create(self, vals):
         res = super(MachineCapacity, self).create(vals)
@@ -214,7 +179,6 @@ class MachineCapacity(models.Model):
         return res
 
 
-    # Done
     def write(self, vals):
         aa_resource = self.env['resource.resource']
         aa_date = (datetime.datetime.strptime(vals.get('aa_date'), DFORMAT)
