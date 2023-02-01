@@ -120,7 +120,7 @@ export class MachineKanbanRenderer extends KanbanRenderer {
         }
         if (!group.isFolded && !group.hasActiveProgressValue) {
             classes.push("bg-100");
-            this.loadMore(group)
+            // this.loadMore(group)
         }
         if (group.progressBars.length) {
             classes.push("o_kanban_has_progressbar");
