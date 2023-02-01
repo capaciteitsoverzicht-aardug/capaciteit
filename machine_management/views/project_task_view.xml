@@ -230,74 +230,74 @@
                                         </div>
                                         <div style="height: 20px;"></div>
                                         <div>
-                                            <table style="width:225px">
+                                            <table>
                                                 <tr>
-                                                    <td style="width:70%">
+                                                    <th style="padding-right:20px">
                                                         <b>Order Description</b>
-                                                    </td>
+                                                    </th>
                                                     <td>
                                                         <field name="x_aa_av_project_description"/>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td style="width:70%">
+                                                    <th style="padding-right:20px">
                                                         <b>Surface</b>
-                                                    </td>
+                                                    </th>
                                                     <td>
                                                         <field name="x_aa_av_surface"/>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td style="width:70%">
+                                                    <th style="padding-right:20px">
                                                         <b>Tonnage</b>
-                                                    </td>
+                                                    </th>
                                                     <td>
                                                         <field name="x_aa_av_tonnage"/>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td style="width:70%">
+                                                    <th style="padding-right:20px">
                                                         <b>Color</b>
-                                                    </td>
+                                                    </th>
                                                     <td>
                                                         <field name="x_aa_av_color_product_id"/>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td style="width:70%">
+                                                    <th style="padding-right:20px">
                                                         <b>Total Deliveries</b>
-                                                    </td>
+                                                    </th>
                                                     <td>
                                                         <field name="x_aa_av_components_transport"/>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td style="width:70%">
+                                                    <th style="padding-right:20px">
                                                         <b>Transport Stage</b>
-                                                    </td>
+                                                    </th>
                                                     <td>
                                                         <field name="x_aa_av_transport_stage"/>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td style="width:70%">
+                                                    <th style="padding-right:20px">
                                                         <b>Delivery Date</b>
-                                                    </td>
+                                                    </th>
                                                     <td>
                                                         <field name="x_aa_av_delivery_date"/>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td style="width:70%">
+                                                    <th style="padding-right:20px">
                                                         <b>Pickup Date</b>
-                                                    </td>
+                                                    </th>
                                                     <td>
                                                         <field name="x_aa_av_pickup_date"/>
                                                     </td>
